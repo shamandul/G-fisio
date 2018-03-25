@@ -5,64 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>G-fisio</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/estilos-welcome.css') }}" rel="stylesheet">
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -76,20 +26,58 @@
                     @endauth
                 </div>
             @endif
+          {{-- <div class="container"> --}}
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+            <div class="contenedor">
+              <div id="cabecera">
+                <div class="flex-center title">
+                  <h1>G-Fisio</h1>
+                  <p>Por su salud</p>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+              </div>
             </div>
+            <div class="texto">
+              <h1>Ejemplo paralax</h1>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+          </div>
+          <div class="contenedor">
+            <div id="seccion1">
+            </div>
+          </div>
+
+          <div class="texto">
+            <h1>Ejemplo relax</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
         </div>
+      </div>
     </body>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/welcome.js') }}"></script>
 </html>

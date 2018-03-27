@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/estilos-home.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -30,7 +30,8 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                      <img src="{{ asset('img/icono.svg') }}" width="30" height="30" class="align-top" alt="G-Fisio"/>
+                      {{ config('app.name', 'G-Fisio') }}
                     </a>
                 </div>
 
@@ -44,8 +45,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Iniciar</a></li>
+                            <li><a href="{{ route('register') }}">Registrar</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -73,6 +74,8 @@
         </nav>
 
         @yield('content')
+
+        @include('layouts.footer')
     </div>
 
     <!-- Scripts -->

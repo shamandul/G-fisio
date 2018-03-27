@@ -48,7 +48,40 @@ html, body {
 .m-b-md {
     margin-bottom: 30px;
 }
-.cabecera{
-  height: 50%;
-  width: 50%;
+.navbar-brand > img{
+  display: inline;
+}
+
+.logo-centrado img{
+  height: 15vw;
+}
+.logo-footer{
+  height: 15vw;
+}
+.footer-color-secundary{
+  background-color: #283593;
+  color: #FFFFFF;
+  padding: 1em;
+}
+.footer-color-primary-dark{
+  background-color: #1A237E;
+  color: #FFFFFF;
+  padding: 1em;
+}
+.fondo-imagen{
+  background-image: url("../img/masaje-relajante.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.lienzo{
+  background-color: #fff;
+  height: 85vh;
+}
+.panel-transparente{
+  background-color: rgba(0,0,0,.5);
+  color: #fff;
+}
+.centrar-panel{
+  padding-top: 5vh;
 }

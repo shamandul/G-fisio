@@ -19,10 +19,10 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Inicio</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('login') }}">Iniciar</a>
+                        <a href="{{ route('register') }}">Registar</a>
                     @endauth
                 </div>
             @endif
@@ -75,6 +75,7 @@
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure, reprehenderit quos quaerat dicta nesciunt tenetur aliquam! Aliquid unde, vero, laboriosam accusamus voluptas totam nesciunt assumenda quae voluptatibus, dolor sunt.</p>
         </div>
+        @include('layouts.footer')
       </div>
     </body>
     <!-- Scripts -->

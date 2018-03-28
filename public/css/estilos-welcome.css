@@ -88,19 +88,3 @@ html, body {
     padding-right: 5vw;
     text-align: center;
 }
-.logo-centrado img{
-  height: 15vw;
-}
-.logo-footer{
-  height: 15vw;
-}
-.footer-color-secundary{
-  background-color: #283593;
-  color: #FFFFFF;
-  padding: 1em;
-}
-.footer-color-primary-dark{
-  background-color: #1A237E;
-  color: #FFFFFF;
-  padding: 1em;
-}

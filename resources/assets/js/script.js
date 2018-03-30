@@ -1,1 +1,5 @@
 
+new vue({
+  el:'#main',
+  
+});

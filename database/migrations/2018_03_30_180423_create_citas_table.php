@@ -18,6 +18,8 @@ class CreateCitasTable extends Migration
             $table->date('fecha');
             $table->string('estado')->default('');
             $table->timestamps();
+            $table->foreign('id_sercvicios')->references('id_servicios')->on('servicios');
+            $table->foreign('id_users')->references('id')->on('users');
         });
     }
 

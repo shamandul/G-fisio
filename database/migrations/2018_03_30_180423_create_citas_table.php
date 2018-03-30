@@ -14,13 +14,13 @@ class CreateCitasTable extends Migration
     public function up()
     {
         Schema::create('citas', function (Blueprint $table) {
-            $table->increments('id_citas');
+            $table->increments('id');
             $table->date('fecha');
             $table->string('estado')->default('');
             $table->timestamps();
             $table->integer('id_servicios')->unsigned();
             $table->integer('id_users')->unsigned();
-            $table->foreign('id_servicios')->references('id_servicios')->on('servicios');
+            $table->foreign('id_servicios')->references('id')->on('servicios');
             $table->foreign('id_users')->references('id')->on('users');
         });
     }

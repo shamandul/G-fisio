@@ -14,15 +14,15 @@ class CreateHorasTable extends Migration
     public function up()
     {
         Schema::create('horas', function (Blueprint $table) {
-            $table->increments('id_horas');
+            $table->increments('id');
             $table->string('hora_inicio')->default('');
             $table->string('hora_fin')->default('');
             $table->string('denominacion')->default('');
             $table->timestamps();
             $table->integer('id_citas')->unsigned();
             $table->integer('id_salas')->unsigned();
-            $table->foreign('id_citas')->references('id_citas')->on('citas');
-            $table->foreign('id_salas')->references('id_salas')->on('salas');
+            $table->foreign('id_citas')->references('id')->on('citas');
+            $table->foreign('id_salas')->references('id')->on('salas');
         });
     }
 

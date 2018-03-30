@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Servicio;
 
 class ServiciosController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Nos devuelve todos los Servicios.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $servicios = Servicio::get();
+        return $servicios;
     }
 
     /**
@@ -23,7 +25,7 @@ class ServiciosController extends Controller
      */
     public function create()
     {
-        //
+        //Mostramos un formulario
     }
 
     /**
@@ -56,7 +58,9 @@ class ServiciosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $servicio = Servicio::findOrFail($id);
+        // formulario
+        return $servicio;
     }
 
     /**
@@ -79,6 +83,7 @@ class ServiciosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $servicio = Servicio::findOrFail($id);
+        $servicio->delete();
     }
 }

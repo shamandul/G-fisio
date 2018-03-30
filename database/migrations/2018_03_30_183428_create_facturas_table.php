@@ -13,11 +13,8 @@ class CreateFacturasTable extends Migration
      */
     public function up()
     {
-        Schema::create('facturass', function (Blueprint $table) {
-            $table->increments('id_factura');
-            $table->date('fecha_emision');
-            $table->string('estado')->default('');
-            $table->date('fecha_pago')->default('');
+        Schema::create('facturas', function (Blueprint $table) {
+            $table->increments('id');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateFacturasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('facturass');
+        Schema::dropIfExists('facturas');
     }
 }

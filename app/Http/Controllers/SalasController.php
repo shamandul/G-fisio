@@ -56,7 +56,7 @@ class SalasController extends Controller
     public function update(Request $request, $id)
     {
       $this->validate($request,[
-        'nombre_servicio' => 'required'
+        'nombre_sala' => 'required'
       ]);
       Sala::find($id)->update($request->all());
       return;

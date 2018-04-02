@@ -19,6 +19,10 @@ Route::get('/servicio', function () {
     return view('servicios');
 });
 
+Route::get('/sala', function () {
+    return view('salas');
+});
+
 Auth::routes();
 //ruta para el home
 
@@ -28,4 +32,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('servicios', 'ServiciosController')->except([
     'create', 'show', 'edit'
 ]);
-//Route::get('/home', 'HomeController@index')->name('home');
+// rutas para salas
+Route::resource('salas', 'SalasController')->except([
+    'create', 'show', 'edit'
+]);

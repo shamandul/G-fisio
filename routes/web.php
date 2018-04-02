@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//pruebas
+Route::get('/servicio', function () {
+    return view('servicios');
+});
 
 Auth::routes();
 //ruta para el home
@@ -21,4 +25,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // rutas para servicios
-Route::resource('servicios', 'ServiciosController');
+Route::resource('servicios', 'ServiciosController')->except([
+    'create', 'show', 'edit'
+]);
+//Route::get('/home', 'HomeController@index')->name('home');

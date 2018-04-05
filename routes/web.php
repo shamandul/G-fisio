@@ -26,6 +26,9 @@ Route::get('/sala', function () {
 Route::get('/cita', function () {
     return view('citas');
 });
+Route::get('/hora', function () {
+    return view('horas');
+});
 
 // pruebas
 
@@ -46,5 +49,10 @@ Route::resource('salas', 'SalasController')->except([
 ]);
 // rutas para citas
 Route::resource('citas', 'CitasController')->except([
+    'create', 'show', 'edit'
+]);
+
+// rutas para horas
+Route::resource('horas', 'HorasController')->except([
     'create', 'show', 'edit'
 ]);

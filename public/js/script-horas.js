@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 45);
+/******/ 	return __webpack_require__(__webpack_require__.s = 51);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -31808,26 +31808,32 @@ module.exports = function spread(callback) {
 /* 42 */,
 /* 43 */,
 /* 44 */,
-/* 45 */
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(46);
+module.exports = __webpack_require__(52);
 
 
 /***/ }),
-/* 46 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-// obtener los Salas
+// obtener las horas
 
 new Vue({
-  el: '#sala-crud',
+  el: '#hora-crud',
   created: function created() {
-    this.getSalas();
+    this.getHoras();
   },
   data: {
-    salas: [],
+    horas: [],
     pagination: {
       'total': 0,
       'current_page': 0,
@@ -31836,9 +31842,11 @@ new Vue({
       'from': 0,
       'to': 0
     },
-    nuevoSala: '',
+    newHoraInicio: '',
+    newHoraFin: '',
+    newDenominacion: '',
     errors: [],
-    datosSala: { 'id': '', 'nombre_sala': '' },
+    datosHora: { 'id': '', 'hora_inicio': '', 'hora_fin': '', 'denominacion': '' },
     offset: 3
   },
   computed: {
@@ -31866,62 +31874,65 @@ new Vue({
     }
   },
   methods: {
-    getSalas: function getSalas(page) {
+    getHoras: function getHoras(page) {
       var _this = this;
 
-      // Obtenemos todos los salas
-      var urlSalas = 'salas?page=' + page;
-      axios.get(urlSalas).then(function (response) {
-        _this.salas = response.data.salas.data, _this.pagination = response.data.pagination;
+      // Obtenemos todas las horas
+      var url = 'horas?page=' + page;
+      axios.get(url).then(function (response) {
+        _this.horas = response.data.horas.data, _this.pagination = response.data.pagination;
       });
     },
-    deleteSala: function deleteSala(sala) {
+    deleteHora: function deleteHora(hora) {
       var _this2 = this;
 
-      //elimina un sala
-      var url = 'salas/' + sala.id;
+      //elimina una hora
+      var url = 'horas/' + hora.id;
       axios.delete(url).then(function (response) {
-        _this2.getSalas();
-        toastr.success('La sala fue eliminada correctamente');
+        _this2.getHoras();
+        toastr.success('La hora fue eliminada correctamente');
       });
     },
-    newSala: function newSala() {
-      $('#nuevo').modal('show');
-    },
-    editSala: function editSala(sala) {
-      // editamos un sala
-      this.datosSala.id = sala.id;
-      this.datosSala.nombre_sala = sala.nombre_sala;
+    editHora: function editHora(hora) {
+      // editamos una hora
+      this.datosHora.id = hora.id;
+      this.datosHora.hora_inicio = hora.hora_inicio;
+      this.datosHora.hora_fin = hora.hora_fin;
+      this.datosHora.denominacion = hora.denominacion;
       $('#editar').modal('show');
     },
-    updateSala: function updateSala(id) {
+    updateHora: function updateHora(id) {
       var _this3 = this;
 
-      //actualizamos un sala
-      var url = 'salas/' + id;
-      axios.put(url, this.datosSala).then(function (response) {
-        _this3.getSalas();
-        _this3.datosSala = { 'id': '', 'nombre_sala': '' };
+      //actualizamos una hora
+      var url = 'horas/' + id;
+      axios.put(url, this.datosHora).then(function (response) {
+        _this3.getHoras();
+        _this3.datosHora = { 'id': '', 'hora_inicio': '', 'hora_fin': '', 'denominacion': '' };
         _this3.errors = [];
         $('#editar').modal('hide');
-        toastr.success('La sala se ha actualizado correctamente');
+        toastr.success('La Hora se ha actualizado correctamente');
       }).catch(function (error) {
         _this3.errors = error.response.data;
       });
     },
-    createSala: function createSala() {
+    createHora: function createHora() {
       var _this4 = this;
 
-      // Método para crear una nueva sala
-      var url = 'salas';
+      // Método para crear una nueva hora
+      var url = 'horas';
       axios.post(url, {
-        nombre_sala: this.nuevoSala
+        hora_inicio: this.newHoraInicio,
+        hora_fin: this.newHoraFin,
+        denominacion: this.newDenominacion
       }).then(function (response) {
-        _this4.getSalas();
-        _this4.nuevoSala = '';
+        _this4.getHoras();
+        _this4.newHoraInicio = '';
+        _this4.newHoraFin = '';
+        _this4.newDenominacion = '';
         _this4.errors = [];
         $('#nuevo').modal('hide');
-        toastr.success('La sala fue guardada correctamente');
+        toastr.success('La hora fue guardado correctamente');
       }).catch(function (error) {
         _this4.errors = error.response.data;
       });
@@ -31929,7 +31940,10 @@ new Vue({
     changePage: function changePage(page) {
       // Metodo para cambiar de página
       this.pagination.current_page = page;
-      this.getSalas(page);
+      this.getHoras(page);
+    },
+    newEstado: function newEstado() {
+      $('#nuevo').modal('show');
     }
 
   }

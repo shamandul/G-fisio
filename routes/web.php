@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-//pruebas
+// pruebas
 Route::get('/servicio', function () {
     return view('servicios');
 });
@@ -22,6 +22,12 @@ Route::get('/servicio', function () {
 Route::get('/sala', function () {
     return view('salas');
 });
+
+Route::get('/cita', function () {
+    return view('citas');
+});
+
+// pruebas
 
 Auth::routes();
 //ruta para el home
@@ -32,7 +38,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('servicios', 'ServiciosController')->except([
     'create', 'show', 'edit'
 ]);
+Route::get('servicios/showAll', 'ServiciosController@showAll')->name('servicios.showAll');
+
 // rutas para salas
 Route::resource('salas', 'SalasController')->except([
+    'create', 'show', 'edit'
+]);
+// rutas para citas
+Route::resource('citas', 'CitasController')->except([
     'create', 'show', 'edit'
 ]);

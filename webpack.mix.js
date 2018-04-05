@@ -16,3 +16,5 @@ mix.js('resources/assets/js/axios.js', 'public/js');
 mix.js('resources/assets/js/app.js', 'public/js').sass('resources/assets/sass/app.scss', 'public/css');
 mix.js('resources/assets/js/script.js', 'public/js');
 mix.js('resources/assets/js/script-salas.js', 'public/js');
+mix.js('resources/assets/js/script-citas.js', 'public/js');
+mix.js('resources/assets/js/script-usuarios.js', 'public/js');

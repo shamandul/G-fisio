@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/ 	return __webpack_require__(__webpack_require__.s = 47);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -31806,25 +31806,31 @@ module.exports = function spread(callback) {
 /* 40 */,
 /* 41 */,
 /* 42 */,
-/* 43 */
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(44);
+module.exports = __webpack_require__(48);
 
 
 /***/ }),
-/* 44 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-// obtener los Servicios
+// obtener los Citas
 
 new Vue({
-  el: '#servicio-crud',
+  el: '#cita-crud',
   created: function created() {
     this.getServicios();
+    this.getCitas();
   },
   data: {
+    citas: [],
     servicios: [],
     pagination: {
       'total': 0,
@@ -31834,11 +31840,11 @@ new Vue({
       'from': 0,
       'to': 0
     },
-    nuevoServicio: '',
-    nuevaDescripcion: '',
-    nuevoPrecio: '',
+    nuevoFecha: '',
+    nuevaEstado: '',
+    nuevoIdServicio: '',
     errors: [],
-    datosServicio: { 'id': '', 'nombre_servicio': '', 'descripcion': '', 'precio': '' },
+    datosCita: { 'id': '', 'fecha': '', 'estado': '', 'id_servicios': '' },
     offset: 3
   },
   computed: {
@@ -31866,75 +31872,84 @@ new Vue({
     }
   },
   methods: {
-    getServicios: function getServicios(page) {
+    getCitas: function getCitas(page) {
       var _this = this;
 
-      // Obtenemos todos los servicios
-      var urlServicios = 'servicios?page=' + page;
-      axios.get(urlServicios).then(function (response) {
-        _this.servicios = response.data.servicios.data, _this.pagination = response.data.pagination;
+      // Obtenemos todas las citas
+      var urlCitas = 'citas?page=' + page;
+      axios.get(urlCitas).then(function (response) {
+        _this.citas = response.data.citas.data, _this.pagination = response.data.pagination;
       });
     },
-    deleteServicio: function deleteServicio(servicio) {
+    getServicios: function getServicios() {
       var _this2 = this;
 
-      //elimina un servicio
-      var url = 'servicios/' + servicio.id;
-      axios.delete(url).then(function (response) {
-        _this2.getServicios();
-        toastr.success('El servicio fue eliminado correctamente');
+      var url = 'servicios/showAll';
+      axios.get(url).then(function (response) {
+        _this2.servicios = response.data;
       });
     },
-    editServicio: function editServicio(servicio) {
-      // editamos un servicio
-      this.datosServicio.id = servicio.id;
-      this.datosServicio.nombre_servicio = servicio.nombre_servicio;
-      this.datosServicio.descripcion = servicio.descripcion;
-      this.datosServicio.precio = servicio.precio;
-      $('#editar').modal('show');
-    },
-    updateServicio: function updateServicio(id) {
+    deleteCita: function deleteCita(cita) {
       var _this3 = this;
 
-      //actualizamos un servicio
-      var url = 'servicios/' + id;
-      axios.put(url, this.datosServicio).then(function (response) {
-        _this3.getServicios();
-        _this3.datosServicio = { 'id': '', 'nombre_servicio': '', 'descripcion': '', 'precio': '' };
-        _this3.errors = [];
-        $('#editar').modal('hide');
-        toastr.success('El servicio se ha actualizado correctamente');
-      }).catch(function (error) {
-        _this3.errors = error.response.data;
+      //elimina una cita
+      var url = 'citas/' + cita.id;
+      axios.delete(url).then(function (response) {
+        _this3.getCitas();
+        toastr.success('La cita fue eliminada correctamente');
       });
     },
-    createServicio: function createServicio() {
+    editCita: function editCita(cita) {
+      // editamos una cita
+      this.datosCita.id = cita.id;
+      this.datosCita.fecha = cita.fecha;
+      this.datosCita.estado = cita.estado;
+      this.datosCita.id_servicios = cita.id_servicios;
+      $('#editar').modal('show');
+    },
+    updateCita: function updateCita(id) {
       var _this4 = this;
 
-      // Método para crear un nuevo servicio
-      var url = 'servicios';
-      axios.post(url, {
-        nombre_servicio: this.nuevoServicio,
-        descripcion: this.nuevaDescripcion,
-        precio: this.nuevoPrecio
-      }).then(function (response) {
-        _this4.getServicios();
-        _this4.nuevoServicio = '';
-        _this4.nuevaDescripcion = '';
-        _this4.nuevoPrecio = '';
+      //actualizamos una cita
+      var url = 'citas/' + id;
+      axios.put(url, this.datosCita).then(function (response) {
+        _this4.getCitas();
+        _this4.datosCita = { 'id': '', 'fecha': '', 'estado': '', 'id_servicios': '' };
         _this4.errors = [];
-        $('#nuevo').modal('hide');
-        toastr.success('El servicio fue guardado correctamente');
+        $('#editar').modal('hide');
+        toastr.success('La cita se ha actualizado correctamente');
       }).catch(function (error) {
         _this4.errors = error.response.data;
+      });
+    },
+    createCita: function createCita() {
+      var _this5 = this;
+
+      // Método para crear una nueva Cita
+      var url = 'citas';
+      axios.post(url, {
+        fecha: this.nuevoFecha,
+        estado: this.nuevaEstado,
+        id_servicios: 2,
+        id_users: 1
+      }).then(function (response) {
+        _this5.getCitas();
+        _this5.nuevoFecha = '';
+        _this5.nuevaEstado = '';
+        _this5.nuevoIdServicio = '';
+        _this5.errors = [];
+        $('#nuevo').modal('hide');
+        toastr.success('La cita fue guardada correctamente');
+      }).catch(function (error) {
+        _this5.errors = error.response.data;
       });
     },
     changePage: function changePage(page) {
       // Metodo para cambiar de página
       this.pagination.current_page = page;
-      this.getServicios(page);
+      this.getCitas(page);
     },
-    newEstado: function newEstado() {
+    newCita: function newCita() {
       $('#nuevo').modal('show');
     }
 

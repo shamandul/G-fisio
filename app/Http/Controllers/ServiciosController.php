@@ -29,6 +29,18 @@ class ServiciosController extends Controller
           'servicios' => $servicios
         ];
     }
+    /**
+     * Nos devuelve todos los Servicios
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function showAll()
+    {
+        $servicios = Servicio::orderBy('id','DESC')->get();
+
+        return $servicios;
+    }
 
 
     /**

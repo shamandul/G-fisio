@@ -108,6 +108,9 @@ new Vue({
       // Metodo para cambiar de página
       this.pagination.current_page = page;
       this.getServicios(page);
+    },
+    newEstado: function(){
+      $('#nuevo').modal('show');
     }
 
   }

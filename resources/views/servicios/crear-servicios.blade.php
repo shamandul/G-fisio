@@ -1,4 +1,3 @@
-
 <form method="POST" v-on:submit.prevent="createServicio">
 <div class="modal fade" id="nuevo">
   <div class="modal-dialog">

@@ -11,7 +11,7 @@
           <label for="nombre_servicio">Nombre del servicio</label>
           <input type="text" name="nombre_servicio" class="form-control" v-model="datosServicio.nombre_servicio">
 
-          <label for="descripcion">descripción</label>
+          <label for="descripcion">Descripción</label>
           <input type="text" name="descripcion" class="form-control" v-model="datosServicio.descripcion">
 
           <label for="precio">Precio</label>

@@ -8,7 +8,7 @@
     <div class="col-sm-12">
       <h1 class="page-header">Citas</h1>
       <div class="col-sm-12">
-          <a href="#" class="btn btn-primary pull-right" data-toggle="modal" v-on:click.prevent="newCita()">Nueva cita</a>
+          <a class="btn btn-primary pull-right" data-toggle="modal" v-on:click.prevent="newCita()">Nueva cita</a>
           <table class="table table-hover table-striped">
             <thead>
               <tr>
@@ -28,10 +28,10 @@
                 <td>@{{cita.id_servicios}}</td>
                 <td>@{{cita.id_users}}</td>
                 <td width="10px">
-                  <a href="#" class="btn btn-warning btn-sm"v-on:click.prevent="editCita(cita)">Editar</a>
+                  <a class="btn btn-warning btn-sm"v-on:click.prevent="editCita(cita)">Editar</a>
                 </td>
                 <td width="10px">
-                  <a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteCita(cita)">Eliminar</a>
+                  <a class="btn btn-danger btn-sm" v-on:click.prevent="deleteCita(cita)">Eliminar</a>
                 </td>
               </tr>
             </tbody>
@@ -39,19 +39,19 @@
           <nav>
             <ul class="pagination">
               <li v-if="pagination.current_page > 1">
-                <a href="#" @click.prevent="changePage(pagination.current_page -1)">
+                <a @click.prevent="changePage(pagination.current_page -1)">
                   <span>Atras</span>
                 </a>
               </li>
 
               <li v-for="page in pagesNumber" v-bind:class="[page == isActived ? 'active': '']">
-                <a href="#" @click.prevent="changePage(page)">
+                <a @click.prevent="changePage(page)">
                   @{{ page}}
                 </a>
               </li>
 
               <li v-if="pagination.current_page < pagination.last_page">
-                <a href="#" @click.prevent="changePage(pagination.current_page +1)">
+                <a @click.prevent="changePage(pagination.current_page +1)">
                   <span>Siguiente</span>
                 </a>
               </li>

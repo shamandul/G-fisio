@@ -43,7 +43,7 @@ class CitasController extends Controller
         $this->validate($request,[
           'fecha' => 'required',
           'estado' => 'required',
-          'id_servicio'=> 'required'
+          'id_servicios'=> 'required'
         ]);
         Cita::create($request->all());
         return;
@@ -73,7 +73,7 @@ class CitasController extends Controller
       $this->validate($request,[
         'fecha' => 'required',
         'estado' => 'required',
-        'id_servicio'=> 'required'
+        'id_servicios'=> 'required'
       ]);
       Cita::find($id)->update($request->all());
       return;

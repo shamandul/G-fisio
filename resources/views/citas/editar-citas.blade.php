@@ -15,9 +15,9 @@
           <input type="text" name="estado" class="form-control" v-model="datosCita.estado">
 
           <label for="nombre_servicio">Servicio</label><br/>
-          <select class="custom-select" name="nombre_servicio" v-model="nuevoIdServicio">
-
-             <option v-for="servicio in servicios" v-bind:value="servicio.id">@{{servicio.nombre_servicio}}</option>
+          <select class="custom-select" name="nombre_servicio" v-model="datosCita.id_servicios">
+            {{-- <option select v-model="datosCita.id_servicios"</option> --}}
+            <option v-for="servicio in servicios" v-bind:value="servicio.id">@{{servicio.nombre_servicio}}</option>
            </select>
 
           <span v-for="error in errors" class="text-danger"> @{{error}} </span>

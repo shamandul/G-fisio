@@ -25,6 +25,20 @@ $factory->define(App\Servicio::class, function (Faker $faker) {
     return [
         'nombre_servicio' => $faker->sentence(2),
         'descripcion' => $faker->text(120),
-        'precio' => $faker->text(10), 
+        'precio' => $faker->text(10),
+    ];
+});
+
+$factory->define(App\Sala::class, function (Faker $faker) {
+    return [
+        'nombre_sala' => $faker->sentence(2)
+    ];
+});
+
+$factory->define(App\Hora::class, function (Faker $faker) {
+    return [
+        'hora_inicio' => $faker->numberBetween(8,20),
+        'hora_fin' => $faker->numberBetween(8,20),
+        'denominacion' => $faker->text(10),
     ];
 });

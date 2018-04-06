@@ -15,7 +15,7 @@ class Hora extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'hora_inicio','Hora_fin','denominacion','id_citas', 'id_salas'
+        'hora_inicio','hora_fin','denominacion'
     ];
 
     /**

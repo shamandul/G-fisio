@@ -19,16 +19,12 @@ new Vue({
     newHoraInicio: '',
     newHoraFin:'',
     newDenominacion:'',
-    newIdCitas: '',
-    newIdSalas: '',
     errors: [],
     datosHora:{
       'id' : '',
       'hora_inicio' : '',
       'hora_fin': '',
-      'denominacion' : '',
-      'id_citas' : '',
-      'id_salas' : ''
+      'denominacion' : ''
      },
     offset: 3
   },
@@ -79,8 +75,6 @@ new Vue({
       this.datosHora.hora_inicio = hora.hora_inicio;
       this.datosHora.hora_fin = hora.hora_fin;
       this.datosHora.denominacion = hora.denominacion;
-      this.datosHora.id_citas = hora.id_citas;
-      this.datosHora.id_salas = hora.id_salas;
       $('#editar').modal('show');
     },
     updateHora: function(id){
@@ -92,9 +86,7 @@ new Vue({
             'id' : '',
             'hora_inicio' : '',
             'hora_fin': '',
-            'denominacion' : '',
-            'id_citas' : '',
-            'id_salas' : ''
+            'denominacion' : ''
           };
           this.errors = [];
           $('#editar').modal('hide');
@@ -109,16 +101,12 @@ new Vue({
           axios.post( url, {
             hora_inicio: this.newHoraInicio,
             hora_fin: this.newHoraFin,
-            denominacion: this.newDenominacion,
-            id_citas: this.newIdCitas,
-            id_salas: this.newIdSalas
+            denominacion: this.newDenominacion
           }).then(response => {
               this.getHoras();
               this.newHoraInicio = '';
               this.newHoraFin = '';
               this.newDenominacion = '';
-              this.newIdCitas = '';
-              this.newIdSalas = '';
               this.errors = [];
               $('#nuevo').modal('hide');
               toastr.success('La hora fue guardado correctamente');

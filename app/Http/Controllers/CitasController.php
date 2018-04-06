@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Cita;
 
 
@@ -16,9 +17,16 @@ class CitasController extends Controller
    */
   public function index(Request $request)
   {
-      $citas = Cita::orderBy('id','DESC')->paginate(4);
-
-      return [
+    $citas = DB::table('citas')
+          ->join('servicios', 'citas.id_servicios', '=', 'servicios.id')
+          ->join('salas', 'citas.id_salas', '=', 'salas.id')
+          ->join('horas', 'citas.id_horas', '=', 'horas.id')
+          ->join('users', 'citas.id_users', '=', 'users.id')
+          ->select('citas.*', 'servicios.nombre_servicio', 'horas.denominacion',
+            'salas.nombre_sala', 'users.nombre', 'users.apellidos')
+          ->orderBy('id','DESC')
+          ->paginate(4);
+          return [
         'pagination' => [
           'total'        => $citas->total(),
           'current_page' => $citas->currentPage(),

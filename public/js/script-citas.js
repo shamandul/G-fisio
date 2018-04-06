@@ -31844,7 +31844,20 @@ new Vue({
     nuevaEstado: '',
     nuevoIdServicio: '',
     errors: [],
-    datosCita: { 'id': '', 'fecha': '', 'estado': '', 'id_servicios': '' },
+    datosCita: {
+      'id': '',
+      'fecha': '',
+      'estado': '',
+      'id_servicios': '',
+      'id_users': '',
+      'id_salas': '',
+      'id_horas': '',
+      'nombre_servicio': '',
+      'denominacion': '',
+      'nombre_sala': '',
+      'nombre': '',
+      'apellidos': ''
+    },
     offset: 3
   },
   computed: {

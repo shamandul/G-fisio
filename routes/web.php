@@ -24,7 +24,7 @@ Route::get('/sala', function () {
 });
 
 Route::get('/cita', function () {
-    return view('citas');
+    return view('panel-cita');
 });
 Route::get('/hora', function () {
     return view('horas');

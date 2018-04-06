@@ -20,12 +20,10 @@ class CreateCitasTable extends Migration
             $table->timestamps();
             $table->integer('id_servicios')->unsigned();
             $table->integer('id_users')->unsigned();
-            $table->integer('id_empleados')->unsigned();
             $table->integer('id_horas')->unsigned();
             $table->integer('id_salas')->unsigned();
             $table->foreign('id_servicios')->references('id')->on('servicios');
             $table->foreign('id_users')->references('id')->on('users');
-            $table->foreign('id_empleados')->references('id')->on('users');
             $table->foreign('id_horas')->references('id')->on('horas');
             $table->foreign('id_salas')->references('id')->on('salas');
         });

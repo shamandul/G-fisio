@@ -15,7 +15,7 @@ class Cita extends Authenticatable
    * @var array
    */
   protected $fillable = [
-      'fecha', 'estado','created_at', 'updated_at','id_servicios', 'id_users',
+      'fecha', 'estado','created_at', 'updated_at','id_servicios', 'id_users', 'id_salas', 'id_horas', 'id_empleados'
   ];
 
   /**

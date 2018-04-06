@@ -53,7 +53,9 @@ class HorasController extends Controller
     {
         $this->validate($request,[
           'hora_inicio' => 'required|string',
-          'hora_fin' => 'required|string'
+          'hora_fin' => 'required|string',
+          'id_citas'=> 'required',
+          'id_salas'=> 'required'
         ]);
         Hora::create($request->all());
         return;
@@ -71,7 +73,9 @@ class HorasController extends Controller
     {
       $this->validate($request,[
         'hora_inicio' => 'required|string',
-        'hora_fin' => 'required|string'
+        'hora_fin' => 'required|string',
+        'id_citas'=> 'required',
+        'id_salas'=> 'required'
       ]);
       Hora::find($id)->update($request->all());
       return;

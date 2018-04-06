@@ -19,10 +19,6 @@ class CreateHorasTable extends Migration
             $table->string('hora_fin')->default('');
             $table->string('denominacion')->default('');
             $table->timestamps();
-            $table->integer('id_citas')->unsigned();
-            $table->integer('id_salas')->unsigned();
-            $table->foreign('id_citas')->references('id')->on('citas');
-            $table->foreign('id_salas')->references('id')->on('salas');
         });
     }
 

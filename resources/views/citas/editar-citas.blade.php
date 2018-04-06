@@ -16,7 +16,6 @@
 
           <label for="nombre_servicio">Servicio</label><br/>
           <select class="custom-select" name="nombre_servicio" v-model="datosCita.id_servicios">
-            {{-- <option select v-model="datosCita.id_servicios"</option> --}}
             <option v-for="servicio in servicios" v-bind:value="servicio.id">@{{servicio.nombre_servicio}}</option>
            </select>
 

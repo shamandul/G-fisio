@@ -16,6 +16,7 @@
 
           <label for="denominacion">Denominación</label>
           <input type="text" name="denominacion" class="form-control" v-model="datosHora.denominacion">
+
           <span v-for="error in errors" class="text-danger"> @{{error}} </span>
       </div>
       <div class="modal-footer">

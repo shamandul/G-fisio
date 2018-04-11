@@ -32,6 +32,19 @@ class SalasController extends Controller
     }
 
     /**
+     * Nos devuelve todos las salas
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function showAll()
+    {
+        $salas = Sala::orderBy('nombre_sala')->get();
+
+        return $salas;
+    }
+
+    /**
      *  Método que nos permite guardar los servicios.
      *
      * @param  \Illuminate\Http\Request  $request

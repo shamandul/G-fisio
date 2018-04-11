@@ -37,7 +37,7 @@ class HorasController extends Controller
      */
     public function showAll()
     {
-        $horas = Hora::orderBy('id','DESC')->get();
+        $horas = Hora::orderBy('denominacion')->get();
 
         return $horas;
     }

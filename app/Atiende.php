@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Cita extends Authenticatable
+class Atiende extends Authenticatable
 {
   use Notifiable;
 
@@ -15,7 +15,7 @@ class Cita extends Authenticatable
    * @var array
    */
   protected $fillable = [
-      'fecha', 'estado','id_servicios', 'id_users', 'id_salas', 'id_horas', 'id_empleados'
+      'id_citas','id_users',
   ];
 
   /**
@@ -24,5 +24,6 @@ class Cita extends Authenticatable
    * @var array
    */
   protected $hidden = [
+
   ];
 }

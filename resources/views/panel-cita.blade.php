@@ -16,9 +16,10 @@
                 <th>Fecha</th>
                 <th>Estado</th>
                 <th>Servicio</th>
-                <th>Nombre Usuario</th>
+                <th>Nombre de cliente</th>
                 <th>Horario</th>
                 <th>Sala</th>
+                <th>Nombre de empleado</th>
                 <th colspan="2">&nbsp;</th>
               </tr>
             </thead>
@@ -31,11 +32,12 @@
                 <td>@{{cita.nombre}} @{{cita.apellidos}}</td>
                 <td>@{{cita.denominacion}}</td>
                 <td>@{{cita.nombre_sala}}</td>
+                <td>@{{cita.nombre_empleado}} @{{cita.apellidos_empleado}}</td>
                 <td width="10px">
                   <a class="btn btn-warning btn-sm"v-on:click.prevent="editCita(cita)">Editar</a>
                 </td>
                 <td width="10px">
-                  <a class="btn btn-danger btn-sm" v-on:click.prevent="deleteCita(cita)">Eliminar</a>
+                  <a class="btn btn-danger btn-sm" v-on:click.prevent="getEliminarCita(cita)">Eliminar</a>
                 </td>
               </tr>
             </tbody>
@@ -62,8 +64,11 @@
             </ul>
           </nav>
       </div>
-  </div>
 
+  </div>
+  @include('citas.crear-citas')
+  @include('citas.editar-citas')
+  @include('citas.delete-citas')
 </div>
 @endsection
 @section('script')

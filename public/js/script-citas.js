@@ -31828,10 +31828,17 @@ new Vue({
   created: function created() {
     this.getServicios();
     this.getCitas();
+    this.getHoras();
+    this.getSalas();
+    this.getEmpleados();
   },
   data: {
     citas: [],
     servicios: [],
+    empleados: [],
+    salas: [],
+    horas: [],
+    atiende: [],
     pagination: {
       'total': 0,
       'current_page': 0,
@@ -31840,9 +31847,13 @@ new Vue({
       'from': 0,
       'to': 0
     },
-    nuevoFecha: '',
-    nuevaEstado: '',
-    nuevoIdServicio: '',
+    newFecha: '',
+    newEstado: '',
+    newIdServicio: '',
+    newIdSala: '',
+    newIdHora: '',
+    newIdEmpleado: '',
+    id_atiende: '',
     errors: [],
     datosCita: {
       'id': '',
@@ -31856,7 +31867,12 @@ new Vue({
       'denominacion': '',
       'nombre_sala': '',
       'nombre': '',
-      'apellidos': ''
+      'apellidos': '',
+      'id_empleado': ''
+    },
+    datosAtiende: {
+      'id_citas': '',
+      'id_users': ''
     },
     offset: 3
   },
@@ -31902,14 +31918,51 @@ new Vue({
         _this2.servicios = response.data;
       });
     },
-    deleteCita: function deleteCita(cita) {
+    getSalas: function getSalas() {
       var _this3 = this;
 
+      var url = 'salas/showAll';
+      axios.get(url).then(function (response) {
+        _this3.salas = response.data;
+      });
+    },
+    getEmpleados: function getEmpleados() {
+      var _this4 = this;
+
+      var url = 'users/showEmpleados';
+      axios.get(url).then(function (response) {
+        _this4.empleados = response.data;
+      });
+    },
+    getHoras: function getHoras() {
+      var _this5 = this;
+
+      var url = 'horas/showAll';
+      axios.get(url).then(function (response) {
+        _this5.horas = response.data;
+      });
+    },
+    deleteAtiende: function deleteAtiende(id) {
+      var url = 'atiende/' + id;
+      axios.delete(url).then(function (response) {
+        // toastr.success('La cita fue eliminada correctamente Atiende');
+      }).catch(function (error) {
+        // this.errors= error.response.data;
+        // toastr.error('La cita no se eliminó en Atiende');
+      });
+    },
+    deleteCita: function deleteCita(cita) {
+      var _this6 = this;
+
       //elimina una cita
+
       var url = 'citas/' + cita.id;
       axios.delete(url).then(function (response) {
-        _this3.getCitas();
+        _this6.getCitas();
         toastr.success('La cita fue eliminada correctamente');
+      }).catch(function (error) {
+        _this6.errors = error.response.data;
+        toastr.error('La cita no se eliminó');
       });
     },
     editCita: function editCita(cita) {
@@ -31918,43 +31971,125 @@ new Vue({
       this.datosCita.fecha = cita.fecha;
       this.datosCita.estado = cita.estado;
       this.datosCita.id_servicios = cita.id_servicios;
+      this.datosCita.id_salas = cita.id_salas;
+      this.datosCita.id_horas = cita.id_horas;
+      this.datosCita.id_empleado = cita.id_empleado;
+      this.datosCita.id_users = cita.id_users;
+      this.datosAtiende.id_users = this.datosCita.id_empleado;
+      this.datosAtiende.id_citas = this.datosCita.id;
+      this.buscarAtiende();
       $('#editar').modal('show');
     },
-    updateCita: function updateCita(id) {
-      var _this4 = this;
+    buscarAtiende: function buscarAtiende() {
+      var _this7 = this;
 
-      //actualizamos una cita
+      var url = 'atiende/buscar?id_citas=' + this.datosCita.id + '&id_users=' + this.datosCita.id_empleado;
+      axios.get(url).then(function (response) {
+        _this7.id_atiende = response.data;
+      });
+    },
+    getEliminarCita: function getEliminarCita(cita) {
+      this.datosCita.id = cita.id;
+      this.datosCita.fecha = cita.fecha;
+      this.datosCita.estado = cita.estado;
+      this.datosCita.id_servicios = cita.id_servicios;
+      this.datosCita.id_salas = cita.id_salas;
+      this.datosCita.id_horas = cita.id_horas;
+      this.datosCita.id_empleado = cita.id_empleado;
+      this.datosCita.id_users = cita.id_users;
+      this.datosAtiende.id_users = cita.id_empleado;
+      this.datosAtiende.id_citas = cita.id;
+      this.buscarAtiende();
+      $('#delete').modal('show');
+    },
+    aceptarCita: function aceptarCita() {
+      this.deleteAtiende(this.id_atiende);
+      this.deleteCita(this.datosCita);
+      $('#delete').modal('hide');
+    },
+    cancelarCita: function cancelarCita() {
+      $('#delete').modal('hide');
+    },
+    updateAtiende: function updateAtiende(id) {
+      var url = 'atiende/' + id;
+      axios.put(url, {
+        id_citas: this.datosCita.id,
+        id_users: this.datosCita.id_empleado
+      }).catch(function (error) {
+        // this.errors = error.response.data;
+        toastr.error('La cita no se ha actualizado atiende');
+      });
+    },
+    updateCita: function updateCita(id) {
+      var _this8 = this;
+
+      //this.buscarAtiende();
+      this.updateAtiende(this.id_atiende);
+      // actualizamos una cita
       var url = 'citas/' + id;
       axios.put(url, this.datosCita).then(function (response) {
-        _this4.getCitas();
-        _this4.datosCita = { 'id': '', 'fecha': '', 'estado': '', 'id_servicios': '' };
-        _this4.errors = [];
+        _this8.getCitas();
+        _this8.datosCita = {
+          'id': '',
+          'fecha': '',
+          'estado': '',
+          'id_servicios': '',
+          'id_users': '',
+          'id_salas': '',
+          'id_horas': ''
+        };
+        _this8.errors = [];
         $('#editar').modal('hide');
         toastr.success('La cita se ha actualizado correctamente');
       }).catch(function (error) {
-        _this4.errors = error.response.data;
+        // this.errors= error.response.data;
+        toastr.error('La cita no se ha actualizado');
+      });
+    },
+    createAtiende: function createAtiende() {
+      var _this9 = this;
+
+      // Método para crear una nueva atiende
+      var url = 'atiende';
+      axios.post(url, {
+        id_citas: this.datosAtiende.id_citas,
+        id_users: this.datosAtiende.id_users
+      }).then(function (response) {
+        _this9.datosAtiende.id_citas = '';
+        _this9.datosAtiende.id_users = '';
+        _this9.getCitas();
+      }).catch(function (error) {
+        //  this.errors= error.response.data;
+        toastr.error('La cita no se ha guardado empleados');
       });
     },
     createCita: function createCita() {
-      var _this5 = this;
+      var _this10 = this;
 
       // Método para crear una nueva Cita
       var url = 'citas';
       axios.post(url, {
-        fecha: this.nuevoFecha,
-        estado: this.nuevaEstado,
-        id_servicios: 2,
-        id_users: 1
+        fecha: this.newFecha,
+        estado: this.newEstado,
+        id_servicios: this.newIdServicio,
+        id_users: 1,
+        id_salas: this.newIdSala,
+        id_horas: this.newIdHora
       }).then(function (response) {
-        _this5.getCitas();
-        _this5.nuevoFecha = '';
-        _this5.nuevaEstado = '';
-        _this5.nuevoIdServicio = '';
-        _this5.errors = [];
+        _this10.datosAtiende.id_citas = response.data;
+        _this10.datosAtiende.id_users = _this10.newIdEmpleado;
+        _this10.createAtiende();
+        _this10.newFecha = '';
+        _this10.newEstado = '';
+        _this10.newIdServicio = '';
+        _this10.newIdSala = '';
+        _this10.newIdHora = '';
+        _this10.errors = [];
         $('#nuevo').modal('hide');
         toastr.success('La cita fue guardada correctamente');
       }).catch(function (error) {
-        _this5.errors = error.response.data;
+        // this.errors= error.response.data;
+        toastr.error('La cita no se ha guardado');
       });
     },
     changePage: function changePage(page) {

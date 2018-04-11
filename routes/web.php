@@ -47,12 +47,30 @@ Route::get('servicios/showAll', 'ServiciosController@showAll')->name('servicios.
 Route::resource('salas', 'SalasController')->except([
     'create', 'show', 'edit'
 ]);
+Route::get('salas/showAll', 'SalasController@showAll')->name('salas.showAll');
 // rutas para citas
 Route::resource('citas', 'CitasController')->except([
     'create', 'show', 'edit'
 ]);
 
+Route::get('citas/ultimoIdInsertado', 'CitasController@ultimoIdInsertado')->name('citas.ultimoIdInsertado');
+
 // rutas para horas
 Route::resource('horas', 'HorasController')->except([
     'create', 'show', 'edit'
 ]);
+Route::get('horas/showAll', 'HorasController@showAll')->name('horas.showAll');
+
+// rutas para users
+Route::resource('users', 'UsersController')->except([
+    'create', 'show', 'edit'
+]);
+Route::get('users/showEmpleados', 'UsersController@showEmpleados')->name('users.showEmpleados');
+Route::get('users/showClientes', 'UsersController@showClientes')->name('users.showClientes');
+
+// rutas para atiende
+Route::resource('atiende', 'AtiendeController')->except([
+    'create', 'show', 'edit'
+]);
+Route::get('atiende/showEmpleados', 'AtiendeController@showEmpleados')->name('atiende.showEmpleados');
+Route::get('atiende/buscar', 'AtiendeController@buscar')->name('atiende.buscar');

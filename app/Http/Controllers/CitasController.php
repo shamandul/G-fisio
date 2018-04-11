@@ -21,9 +21,12 @@ class CitasController extends Controller
           ->join('servicios', 'citas.id_servicios', '=', 'servicios.id')
           ->join('salas', 'citas.id_salas', '=', 'salas.id')
           ->join('horas', 'citas.id_horas', '=', 'horas.id')
-          ->join('users', 'citas.id_users', '=', 'users.id')
+          ->join('users as u', 'citas.id_users', '=', 'u.id')
+          ->join('atiende', 'citas.id', '=', 'atiende.id_citas')
+          ->join('users as e', 'atiende.id_users', '=', 'e.id')
           ->select('citas.*', 'servicios.nombre_servicio', 'horas.denominacion',
-            'salas.nombre_sala', 'users.nombre', 'users.apellidos')
+            'salas.nombre_sala', 'u.nombre', 'u.apellidos', 'e.nombre as nombre_empleado',
+            'e.apellidos as apellidos_empleado', 'e.id as id_empleado')
           ->orderBy('id','DESC')
           ->paginate(4);
           return [
@@ -51,21 +54,16 @@ class CitasController extends Controller
         $this->validate($request,[
           'fecha' => 'required',
           'estado' => 'required',
-          'id_servicios'=> 'required'
+          'id_servicios'=> 'required',
+          'id_horas'=> 'required',
+          'id_users'=> 'required',
+          'id_salas'=> 'required'
         ]);
-        Cita::create($request->all());
-        return;
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        // TODO hacer el metodo para mostrar una cita
+        $id_cita = DB::table('citas')->insertGetId($request->all());
+
+
+        return $id_cita;
     }
 
 
@@ -81,7 +79,10 @@ class CitasController extends Controller
       $this->validate($request,[
         'fecha' => 'required',
         'estado' => 'required',
-        'id_servicios'=> 'required'
+        'id_servicios'=> 'required',
+        'id_horas'=> 'required',
+        'id_users'=> 'required',
+        'id_salas'=> 'required'
       ]);
       Cita::find($id)->update($request->all());
       return;
@@ -98,5 +99,6 @@ class CitasController extends Controller
         $cita = Cita::findOrFail($id);
         $cita->delete();
     }
+
 
 }

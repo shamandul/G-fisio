@@ -16,7 +16,7 @@ class CreateCitasTable extends Migration
         Schema::create('citas', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha');
-            $table->string('estado')->default('');
+            $table->string('estado')->default('Pendiente');
             $table->timestamps();
             $table->integer('id_servicios')->unsigned();
             $table->integer('id_users')->unsigned();

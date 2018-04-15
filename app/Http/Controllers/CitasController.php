@@ -96,6 +96,8 @@ class CitasController extends Controller
      */
     public function destroy($id)
     {
+        DB::table('facturas')
+        ->where('id_citas', '$id')->delete();
         $cita = Cita::findOrFail($id);
         $cita->delete();
     }

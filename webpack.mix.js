@@ -19,3 +19,4 @@ mix.js('resources/assets/js/script-salas.js', 'public/js');
 mix.js('resources/assets/js/script-citas.js', 'public/js');
 mix.js('resources/assets/js/script-usuarios.js', 'public/js');
 mix.js('resources/assets/js/script-horas.js', 'public/js');
+mix.js('resources/assets/js/script-facturas.js', 'public/js')

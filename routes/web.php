@@ -29,6 +29,9 @@ Route::get('/cita', function () {
 Route::get('/hora', function () {
     return view('horas');
 });
+Route::get('/factura', function () {
+    return view('panel-facturas');
+});
 
 // pruebas
 
@@ -54,6 +57,7 @@ Route::resource('citas', 'CitasController')->except([
 ]);
 
 Route::get('citas/ultimoIdInsertado', 'CitasController@ultimoIdInsertado')->name('citas.ultimoIdInsertado');
+Route::get('citas/citasInNotFacturas', 'CitasController@citasInNotFacturas')->name('citas.citasInNotFacturas');
 
 // rutas para horas
 Route::resource('horas', 'HorasController')->except([
@@ -74,3 +78,8 @@ Route::resource('atiende', 'AtiendeController')->except([
 ]);
 Route::get('atiende/showEmpleados', 'AtiendeController@showEmpleados')->name('atiende.showEmpleados');
 Route::get('atiende/buscar', 'AtiendeController@buscar')->name('atiende.buscar');
+
+// rutas para facturas
+Route::resource('facturas', 'FacturasController')->except([
+    'create', 'show', 'edit'
+]);

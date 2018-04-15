@@ -99,6 +99,24 @@ class CitasController extends Controller
         $cita = Cita::findOrFail($id);
         $cita->delete();
     }
+    /**
+     * Nos devuelve todas las Citas que no tienen asignada una factura
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function citasInNotFacturas()
+    {
+      $citas = DB::table('citas')
+            ->join('users', 'citas.id_users', '=', 'users.id')
+            ->select('citas.*', 'users.nombre', 'users.apellidos')
+            ->whereNotIn('citas.id',function($query){
+              $query->select('facturas.id_citas')->from('facturas');
+            })
+            ->orderBy('id','DESC')->get();
+            return [
+          'citas' => $citas
+        ];
 
+    }
 
 }

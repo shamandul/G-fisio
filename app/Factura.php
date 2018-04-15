@@ -1,11 +1,10 @@
 <?php
-
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Hora extends Authenticatable
+class Factura extends Authenticatable
 {
     use Notifiable;
 
@@ -15,7 +14,7 @@ class Hora extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'hora_inicio','hora_fin','denominacion',
+        'fecha_emision','estado','fecha_pago', 'id_citas',
     ];
 
     /**

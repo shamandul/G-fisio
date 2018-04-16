@@ -6,6 +6,12 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailConfirmacion;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+
 
 class RegisterController extends Controller
 {
@@ -67,5 +73,17 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function register(Request $request){
+      $this->validator($request->all())->validate();
+      event(new Registered($user=$this->create($request->all())));
+      Mail::to($user->email)->send(new EmailConfirmacion($user));
+      return back()->with('status' , 'Por favor confirma tu email ');
+    }
+    public function confirmEmail($codigo_activacion){
+
+      User::where('codigo_activacion',$codigo_activacion)->firstOrFail()->confirmEmail();
+      return redirect('login')->with('status', 'Se ha confirmado tu email, ya puedes iniciar sesión');
     }
 }

@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2 centrar-panel">
             <div class="panel panel-transparente">
                 <div class="panel-heading text-uppercase">Iniciar sesión</div>
-
+                   @include('parcial.flash')
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}

@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/registro/email/{codigo_activacion}', 'Auth\RegisterController@confirmEmail');
 // pruebas
 Route::get('/servicio', function () {
     return view('servicios');

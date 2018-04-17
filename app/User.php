@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','codigo_activacion',
+        'password', 'remember_token','codigo_activacion'
     ];
 
     public static function boot(){

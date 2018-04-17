@@ -79,6 +79,7 @@ class RegisterController extends Controller
       $this->validator($request->all())->validate();
       event(new Registered($user=$this->create($request->all())));
       Mail::to($user->email)->send(new EmailConfirmacion($user));
+
       return back()->with('status' , 'Por favor confirma tu email ');
     }
     public function confirmEmail($codigo_activacion){

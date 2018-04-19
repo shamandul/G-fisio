@@ -1,0 +1,60 @@
+.contenedor {
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.encabezado #logo{
+  width: 30%;
+  float: left;
+}
+.encabezado #titulo{
+  width: 20%;
+  float: left;
+}
+.encabezado #enc-datos{
+  width: 30%;
+  float: right;
+}
+
+.img-logo {
+    width: 200px;
+    height: 150px;
+}
+
+.encabezado {
+    width: 100%;
+    height: 160px;
+}
+
+.contenedor-datos {
+
+    padding-left: 20%;
+    padding-right: 20%;
+    float: none;
+}
+
+.datos {
+    /*padding: 1em;*/
+
+}
+
+.descripcion {
+    /*padding: 1em;*/
+
+}
+
+.datos p {
+    padding-left: 1em;
+}
+
+.descripcion p {
+    padding-left: 1em;
+}
+
+.contenedor-estado {
+    width: 100%;
+    text-align: center;
+}
+.text-capitalize{
+  text-transform: uppercase;
+}

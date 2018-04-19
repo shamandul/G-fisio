@@ -17,7 +17,7 @@
                 <th>Estado</th>
                 <th>Fecha de pago</th>
                 <th>ID de la cita</th>
-                <th colspan="2">&nbsp;</th>
+                <th colspan="3">&nbsp;</th>
               </tr>
             </thead>
             <tbody>
@@ -28,7 +28,10 @@
                 <td>@{{factura.fecha_pago}}</td>
                 <td>@{{factura.id_citas}}</td>
                 <td width="10px">
-                  <a class="btn btn-warning btn-sm"v-on:click.prevent="editFactura(factura)">Editar</a>
+                  <a class="btn btn-success btn-sm" v-bind:href="'facturas/factura/' + factura.id_citas" >Ver factura</a>
+                </td>
+                <td width="10px">
+                  <a class="btn btn-warning btn-sm" v-on:click.prevent="editFactura(factura)">Editar</a>
                 </td>
                 <td width="10px">
                   <a class="btn btn-danger btn-sm" v-on:click.prevent="deleteFactura(factura)">Eliminar</a>

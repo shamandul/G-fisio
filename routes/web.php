@@ -84,3 +84,4 @@ Route::get('atiende/buscar', 'AtiendeController@buscar')->name('atiende.buscar')
 Route::resource('facturas', 'FacturasController')->except([
     'create', 'show', 'edit'
 ]);
+Route::get('/facturas/factura/{id}', 'FacturasController@crearPdf');

@@ -65,10 +65,7 @@
 </div>
 @endsection
 @section('script')
-  <!-- Cargamos Vue, Axios, toastr y nuestro Script -->
-  <script src="{{ asset('js/jquery.js') }}"></script>
-  <script src="{{ asset('js/vue.js') }}"></script>
-  <script src="{{ asset('js/axios.js') }}"></script>
+  <!-- Cargamos toastr y nuestro Script -->
   <script src="{{ asset('js/toastr.js') }}"></script>
   <script src="{{ asset('js/script-citas.js') }}"></script>
 @endsection

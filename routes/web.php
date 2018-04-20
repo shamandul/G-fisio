@@ -14,74 +14,76 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/registro/email/{codigo_activacion}', 'Auth\RegisterController@confirmEmail');
-// pruebas
-Route::get('/servicio', function () {
-    return view('servicios');
-});
-
-Route::get('/sala', function () {
-    return view('salas');
-});
-
-Route::get('/cita', function () {
-    return view('panel-cita');
-});
-Route::get('/hora', function () {
-    return view('horas');
-});
-Route::get('/factura', function () {
-    return view('panel-facturas');
-});
-
-// pruebas
 
 Auth::routes();
-//ruta para el home
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/registro/email/{codigo_activacion}', 'Auth\RegisterController@confirmEmail');
+  // vista solo para usuarios registrados
+Route::group(['middleware' => ['auth']], function(){
+  Route::get('/servicio', function () {
+      return view('servicios');
+  });
 
-// rutas para servicios
-Route::resource('servicios', 'ServiciosController')->except([
-    'create', 'show', 'edit'
-]);
-Route::get('servicios/showAll', 'ServiciosController@showAll')->name('servicios.showAll');
+  Route::get('/sala', function () {
+      return view('salas');
+  });
 
-// rutas para salas
-Route::resource('salas', 'SalasController')->except([
-    'create', 'show', 'edit'
-]);
-Route::get('salas/showAll', 'SalasController@showAll')->name('salas.showAll');
-// rutas para citas
-Route::resource('citas', 'CitasController')->except([
-    'create', 'show', 'edit'
-]);
+  Route::get('/cita', function () {
+      return view('panel-cita');
+  });
+  Route::get('/hora', function () {
+      return view('horas');
+  });
+  Route::get('/factura', function () {
+      return view('panel-facturas');
+  });
 
-Route::get('citas/ultimoIdInsertado', 'CitasController@ultimoIdInsertado')->name('citas.ultimoIdInsertado');
-Route::get('citas/citasInNotFacturas', 'CitasController@citasInNotFacturas')->name('citas.citasInNotFacturas');
+  //ruta para el home
 
-// rutas para horas
-Route::resource('horas', 'HorasController')->except([
-    'create', 'show', 'edit'
-]);
-Route::get('horas/showAll', 'HorasController@showAll')->name('horas.showAll');
+  Route::get('/home', 'HomeController@index')->name('home');
 
-// rutas para users
-Route::resource('users', 'UsersController')->except([
-    'create', 'show', 'edit'
-]);
-Route::get('users/showEmpleados', 'UsersController@showEmpleados')->name('users.showEmpleados');
-Route::get('users/showClientes', 'UsersController@showClientes')->name('users.showClientes');
+  // rutas para servicios
+  Route::resource('servicios', 'ServiciosController')->except([
+      'create', 'show', 'edit'
+  ]);
+  Route::get('servicios/showAll', 'ServiciosController@showAll')->name('servicios.showAll');
 
-// rutas para atiende
-Route::resource('atiende', 'AtiendeController')->except([
-    'create', 'show', 'edit'
-]);
-Route::get('atiende/showEmpleados', 'AtiendeController@showEmpleados')->name('atiende.showEmpleados');
-Route::get('atiende/buscar', 'AtiendeController@buscar')->name('atiende.buscar');
+  // rutas para salas
+  Route::resource('salas', 'SalasController')->except([
+      'create', 'show', 'edit'
+  ]);
+  Route::get('salas/showAll', 'SalasController@showAll')->name('salas.showAll');
+  // rutas para citas
+  Route::resource('citas', 'CitasController')->except([
+      'create', 'show', 'edit'
+  ]);
 
-// rutas para facturas
-Route::resource('facturas', 'FacturasController')->except([
-    'create', 'show', 'edit'
-]);
-Route::get('/facturas/factura/{id}', 'FacturasController@crearPdf');
+  Route::get('citas/ultimoIdInsertado', 'CitasController@ultimoIdInsertado')->name('citas.ultimoIdInsertado');
+  Route::get('citas/citasInNotFacturas', 'CitasController@citasInNotFacturas')->name('citas.citasInNotFacturas');
+
+  // rutas para horas
+  Route::resource('horas', 'HorasController')->except([
+      'create', 'show', 'edit'
+  ]);
+  Route::get('horas/showAll', 'HorasController@showAll')->name('horas.showAll');
+
+  // rutas para users
+  Route::resource('users', 'UsersController')->except([
+      'create', 'show', 'edit'
+  ]);
+  Route::get('users/showEmpleados', 'UsersController@showEmpleados')->name('users.showEmpleados');
+  Route::get('users/showClientes', 'UsersController@showClientes')->name('users.showClientes');
+
+  // rutas para atiende
+  Route::resource('atiende', 'AtiendeController')->except([
+      'create', 'show', 'edit'
+  ]);
+  Route::get('atiende/showEmpleados', 'AtiendeController@showEmpleados')->name('atiende.showEmpleados');
+  Route::get('atiende/buscar', 'AtiendeController@buscar')->name('atiende.buscar');
+
+  // rutas para facturas
+  Route::resource('facturas', 'FacturasController')->except([
+      'create', 'show', 'edit'
+  ]);
+  Route::get('/facturas/factura/{id}', 'FacturasController@crearPdf');
+});

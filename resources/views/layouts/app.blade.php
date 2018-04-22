@@ -30,7 +30,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/home') }}">
                       <img src="{{ asset('img/icono.svg') }}" width="30" height="30" class="align-top" alt="G-Fisio"/>
                       {{ config('app.name', 'G-Fisio') }}
                     </a>

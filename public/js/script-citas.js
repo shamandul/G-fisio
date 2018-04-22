@@ -82,7 +82,7 @@ module.exports = __webpack_require__(48);
 new Vue({
   el: '#cita-crud',
   created: function created() {
-    this.getRegistrado();
+    // this.getRegistrado();
     this.getServicios();
     this.getCitas();
     this.getHoras();
@@ -163,10 +163,36 @@ new Vue({
       var _this = this;
 
       // Obtenemos todas las citas
-      var urlCitas = 'citas?page=' + page;
-      axios.get(urlCitas).then(function (response) {
-        _this.citas = response.data.citas.data, _this.pagination = response.data.pagination;
+      var url = 'users/showUserSession';
+      var urlCitas = '';
+      axios.get(url).then(function (response) {
+        _this.registrados = response.data;
+
+        if (_this.registrados[0].role == 'empleado' || _this.registrados[0].role == 'admin') {
+          urlCitas = 'citas?page=' + page;
+          axios.get(urlCitas).then(function (response) {
+            _this.citas = response.data.citas.data, _this.pagination = response.data.pagination;
+          });
+        } else {
+          urlCitas = 'citas/showAllUser/' + _this.registrados[0].id + '?page=' + page;
+          axios.get(urlCitas).then(function (response) {
+            _this.citas = response.data.citas.data, _this.pagination = response.data.pagination;
+          });
+        }
       });
+      // if(this.registrados[0].role == 'empleado' || this.registrados[0].role == 'admin' ){
+      //   urlCitas = 'citas?page=' + page;
+      //   axios.get(urlCitas).then(response=>{
+      //     this.citas = response.data.citas.data,
+      //     this.pagination =response.data.pagination
+      //   });
+      // }else{
+      //   urlCitas = 'citas/showAllUser/'+this.registrados[0].id+'?page=' + page;
+      //   axios.get(urlCitas).then(response=>{
+      //     this.citas = response.data.citas.data,
+      //     this.pagination =response.data.pagination
+      //   });
+      // }
     },
     getServicios: function getServicios() {
       var _this2 = this;
@@ -338,7 +364,7 @@ new Vue({
         fecha: this.newFecha,
         estado: this.newEstado,
         id_servicios: this.newIdServicio,
-        id_users: 1,
+        id_users: this.registrados[0].id,
         id_salas: this.newIdSala,
         id_horas: this.newIdHora
       }).then(function (response) {

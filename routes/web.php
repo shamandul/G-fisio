@@ -60,6 +60,8 @@ Route::group(['middleware' => ['auth']], function(){
 
   Route::get('citas/ultimoIdInsertado', 'CitasController@ultimoIdInsertado')->name('citas.ultimoIdInsertado');
   Route::get('citas/citasInNotFacturas', 'CitasController@citasInNotFacturas')->name('citas.citasInNotFacturas');
+  Route::get('citas/showAllUser/{id}', 'CitasController@showAllUser')->name('citas.showAllUser');
+
 
   // rutas para horas
   Route::resource('horas', 'HorasController')->except([

@@ -120,5 +120,38 @@ class CitasController extends Controller
         ];
 
     }
+    /**
+     * Nos devuelve todas las Citas de un cliente y los datos para la paginación
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllUser(Request $request, $id)
+    {
+      $citas = DB::table('citas')
+            ->join('servicios', 'citas.id_servicios', '=', 'servicios.id')
+            ->join('salas', 'citas.id_salas', '=', 'salas.id')
+            ->join('horas', 'citas.id_horas', '=', 'horas.id')
+            ->join('users as u', 'citas.id_users', '=', 'u.id')
+            ->join('atiende', 'citas.id', '=', 'atiende.id_citas')
+            ->join('users as e', 'atiende.id_users', '=', 'e.id')
+            ->select('citas.*', 'servicios.nombre_servicio', 'horas.denominacion',
+              'salas.nombre_sala', 'u.nombre', 'u.apellidos', 'e.nombre as nombre_empleado',
+              'e.apellidos as apellidos_empleado', 'e.id as id_empleado')
+            ->orderBy('id','DESC')
+            ->where('citas.id_users', $id)
+            ->paginate(4);
+            return [
+          'pagination' => [
+            'total'        => $citas->total(),
+            'current_page' => $citas->currentPage(),
+            'per_page'     => $citas->perPage(),
+            'last_page'    => $citas->lastPage(),
+            'from'         => $citas->firstItem(),
+            'to'           => $citas->lastPage(),
+          ],
+          'citas' => $citas
+        ];
+    }
 
 }

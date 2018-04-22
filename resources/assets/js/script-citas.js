@@ -4,7 +4,7 @@
 new Vue({
   el:'#cita-crud',
   created: function(){
-    this.getRegistrado();
+    // this.getRegistrado();
     this.getServicios();
     this.getCitas();
     this.getHoras();
@@ -83,11 +83,39 @@ new Vue({
   methods: {
     getCitas: function(page){
       // Obtenemos todas las citas
-      var urlCitas = 'citas?page=' + page;
-      axios.get(urlCitas).then(response=>{
-        this.citas = response.data.citas.data,
-        this.pagination =response.data.pagination
+      var url = 'users/showUserSession';
+      var urlCitas='';
+      axios.get(url).then(response=>{
+        this.registrados = response.data
+
+        if(this.registrados[0].role == 'empleado' || this.registrados[0].role == 'admin' ){
+          urlCitas = 'citas?page=' + page;
+          axios.get(urlCitas).then(response=>{
+            this.citas = response.data.citas.data,
+            this.pagination =response.data.pagination
+          });
+        }else{
+          urlCitas = 'citas/showAllUser/'+ this.registrados[0].id +'?page=' + page;
+          axios.get(urlCitas).then(response=>{
+            this.citas = response.data.citas.data,
+            this.pagination =response.data.pagination
+          });
+        }
       });
+      // if(this.registrados[0].role == 'empleado' || this.registrados[0].role == 'admin' ){
+      //   urlCitas = 'citas?page=' + page;
+      //   axios.get(urlCitas).then(response=>{
+      //     this.citas = response.data.citas.data,
+      //     this.pagination =response.data.pagination
+      //   });
+      // }else{
+      //   urlCitas = 'citas/showAllUser/'+this.registrados[0].id+'?page=' + page;
+      //   axios.get(urlCitas).then(response=>{
+      //     this.citas = response.data.citas.data,
+      //     this.pagination =response.data.pagination
+      //   });
+      // }
+
     },
     getServicios: function(){
       var url = 'servicios/showAll';
@@ -240,7 +268,7 @@ new Vue({
             fecha: this.newFecha,
             estado: this.newEstado,
             id_servicios: this.newIdServicio,
-            id_users: 1,
+            id_users: this.registrados[0].id,
             id_salas: this.newIdSala,
             id_horas: this.newIdHora,
           }).then(response => {

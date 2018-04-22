@@ -4,7 +4,8 @@
 new Vue({
   el:'#cita-crud',
   created: function(){
-    this.getServicios()
+    this.getRegistrado();
+    this.getServicios();
     this.getCitas();
     this.getHoras();
     this.getSalas();
@@ -13,6 +14,7 @@ new Vue({
   data: {
     citas: [],
     servicios: [],
+    registrados:[],
     empleados: [],
     salas: [],
     horas: [],
@@ -91,6 +93,12 @@ new Vue({
       var url = 'servicios/showAll';
       axios.get(url).then(response=>{
         this.servicios = response.data
+      });
+    },
+    getRegistrado: function(){
+      var url = 'users/showUserSession';
+      axios.get(url).then(response=>{
+        this.registrados = response.data
       });
     },
     getSalas: function(){

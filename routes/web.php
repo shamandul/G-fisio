@@ -73,6 +73,7 @@ Route::group(['middleware' => ['auth']], function(){
   ]);
   Route::get('users/showEmpleados', 'UsersController@showEmpleados')->name('users.showEmpleados');
   Route::get('users/showClientes', 'UsersController@showClientes')->name('users.showClientes');
+  Route::get('users/showUserSession', 'UsersController@showUserSession')->name('users.showUserSession');
 
   // rutas para atiende
   Route::resource('atiende', 'AtiendeController')->except([

@@ -60,31 +60,31 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 55);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 51:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(52);
+module.exports = __webpack_require__(56);
 
 
 /***/ }),
 
-/***/ 52:
+/***/ 56:
 /***/ (function(module, exports) {
 
 // obtener las horas
 
 new Vue({
-  el: '#hora-crud',
+  el: '#usuarios-crud',
   created: function created() {
-    this.getHoras();
+    this.getUsers();
   },
   data: {
-    horas: [],
+    users: [],
     pagination: {
       'total': 0,
       'current_page': 0,
@@ -93,15 +93,16 @@ new Vue({
       'from': 0,
       'to': 0
     },
-    newHoraInicio: '',
-    newHoraFin: '',
-    newDenominacion: '',
     errors: [],
-    datosHora: {
+    datosUser: {
       'id': '',
-      'hora_inicio': '',
-      'hora_fin': '',
-      'denominacion': ''
+      'nombre': '',
+      'apellidos': '',
+      'telefono': '',
+      'direccion': '',
+      'role': '',
+      'email': '',
+      'activo': ''
     },
     offset: 3
   },
@@ -130,78 +131,77 @@ new Vue({
     }
   },
   methods: {
-    getHoras: function getHoras(page) {
+    getUsers: function getUsers(page) {
       var _this = this;
 
-      // Obtenemos todas las horas
-      var url = 'horas?page=' + page;
+      // Obtenemos todos los usuarios
+      var url = 'users/showUserSession';
+      var urlUser = '';
       axios.get(url).then(function (response) {
-        _this.horas = response.data.horas.data, _this.pagination = response.data.pagination;
-      });
-    },
-    deleteHora: function deleteHora(hora) {
-      var _this2 = this;
+        _this.registrados = response.data;
 
-      //elimina una hora
-      var url = 'horas/' + hora.id;
-      axios.delete(url).then(function (response) {
-        _this2.getHoras();
-        toastr.success('La hora fue eliminada correctamente');
+        if (_this.registrados[0].role == 'admin') {
+          urlUser = 'users?page=' + page;
+          axios.get(urlUser).then(function (response) {
+            _this.users = response.data.users.data, _this.pagination = response.data.pagination;
+          });
+        } else {
+
+          _this.datosUser.id = _this.registrados[0].id;
+          _this.datosUser.nombre = _this.registrados[0].nombre;
+          _this.datosUser.apellidos = _this.registrados[0].apellidos;
+          _this.datosUser.telefono = _this.registrados[0].telefono;
+          _this.datosUser.direccion = _this.registrados[0].direccion;
+          _this.datosUser.role = _this.registrados[0].role;
+          _this.datosUser.email = _this.registrados[0].email;
+          _this.datosUser.activo = _this.registrados[0].activo;
+        }
       });
     },
-    editHora: function editHora(hora) {
-      // editamos una hora
-      this.datosHora.id = hora.id;
-      this.datosHora.hora_inicio = hora.hora_inicio;
-      this.datosHora.hora_fin = hora.hora_fin;
-      this.datosHora.denominacion = hora.denominacion;
+    editUsuario: function editUsuario(user) {
+      // editamos un usuario
+      this.datosUser.id = user.id;
+      this.datosUser.nombre = user.nombre;
+      this.datosUser.apellidos = user.apellidos;
+      this.datosUser.telefono = user.telefono;
+      this.datosUser.direccion = user.direccion;
+      this.datosUser.role = user.role;
+      this.datosUser.email = user.email;
+      this.datosUser.activo = user.activo;
       $('#editar').modal('show');
     },
-    updateHora: function updateHora(id) {
-      var _this3 = this;
-
-      //actualizamos una hora
-      var url = 'horas/' + id;
-      axios.put(url, this.datosHora).then(function (response) {
-        _this3.getHoras();
-        _this3.datosHora = {
-          'id': '',
-          'hora_inicio': '',
-          'hora_fin': '',
-          'denominacion': ''
-        };
-        _this3.errors = [];
-        $('#editar').modal('hide');
-        toastr.success('La Hora se ha actualizado correctamente');
-      }).catch(function (error) {
-        _this3.errors = error.response.data;
-      });
+    edit: function edit() {
+      $('#editar').modal('show');
     },
-    createHora: function createHora() {
-      var _this4 = this;
+    updateUser: function updateUser(id) {
+      var _this2 = this;
 
-      // Método para crear una nueva hora
-      var url = 'horas';
-      axios.post(url, {
-        hora_inicio: this.newHoraInicio,
-        hora_fin: this.newHoraFin,
-        denominacion: this.newDenominacion
-      }).then(function (response) {
-        _this4.getHoras();
-        _this4.newHoraInicio = '';
-        _this4.newHoraFin = '';
-        _this4.newDenominacion = '';
-        _this4.errors = [];
-        $('#nuevo').modal('hide');
-        toastr.success('La hora fue guardado correctamente');
+      //actualizamos un usuario
+      var url = 'users/' + id;
+      axios.put(url, this.datosUser).then(function (response) {
+        _this2.getUsers();
+        _this2.datosUser = {
+          'id': '',
+          'nombre': '',
+          'apellidos': '',
+          'telefono': '',
+          'direccion': '',
+          'role': '',
+          'email': '',
+          'activo': ''
+        };
+        _this2.errors = [];
+        $('#editar').modal('hide');
+        toastr.success('El Usuario se ha actualizado correctamente');
       }).catch(function (error) {
-        _this4.errors = error.response.data;
+        // this.errors= error.response.data;
+        toastr.error('El Usuario no se ha actualizado');
       });
     },
     changePage: function changePage(page) {
       // Metodo para cambiar de página
       this.pagination.current_page = page;
-      this.getHoras(page);
+      this.getUsers(page);
     },
     newEstado: function newEstado() {
       $('#nuevo').modal('show');

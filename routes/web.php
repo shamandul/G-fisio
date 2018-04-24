@@ -37,6 +37,9 @@ Route::group(['middleware' => ['auth']], function(){
   Route::get('/factura', function () {
       return view('panel-facturas');
   });
+  Route::get('/usuario', function () {
+      return view('panel-usuarios');
+  });
 
   //ruta para el home
 
@@ -76,7 +79,7 @@ Route::group(['middleware' => ['auth']], function(){
   Route::get('users/showEmpleados', 'UsersController@showEmpleados')->name('users.showEmpleados');
   Route::get('users/showClientes', 'UsersController@showClientes')->name('users.showClientes');
   Route::get('users/showUserSession', 'UsersController@showUserSession')->name('users.showUserSession');
-
+  Route::get('users/lista', 'UsersController@lista')->name('users.lista');
   // rutas para atiende
   Route::resource('atiende', 'AtiendeController')->except([
       'create', 'show', 'edit'

@@ -5,6 +5,7 @@
     "/js/axios.js": "/js/axios.js",
     "/js/script.js": "/js/script.js",
     "/js/script-usuarios.js": "/js/script-usuarios.js",
+    "/js/script-users.js": "/js/script-users.js",
     "/js/script-salas.js": "/js/script-salas.js",
     "/js/script-horas.js": "/js/script-horas.js",
     "/js/script-facturas.js": "/js/script-facturas.js",

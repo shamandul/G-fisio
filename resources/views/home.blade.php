@@ -50,7 +50,7 @@
              <img class="card-img-top img-tamano" src="{{ asset('img/usuarios.svg') }}" alt="Card image cap">
             <h4 class="card-title">Gestionar Usuarios</h4>
             <h5 class="card-subtitle mb-2 text-muted">Gestión de usuarios</h5>
-            <p class="card-text">Aquí puede gestionar los usuarios. Puedes ver, modificar, crear y eliminar usuarios</p>
+            <p class="card-text">Aquí puede gestionar los usuarios. Puedes ver y modificar usuarios</p>
             <a href="{{ url('/usuario') }}" class="btn btn-primary">Ir a gestió de usuarios</a>
           </div>
         </div>
@@ -78,7 +78,7 @@
             <h4 class="card-title">Gestionar Salas</h4>
             <h5 class="card-subtitle mb-2 text-muted">Gestión de salas</h5>
             <p class="card-text">Aquí puede gestionar las salas. Puedes ver, modificar, crear y eliminar salas</p>
-            <a href="{{ url('/sala') }}" class="btn btn-primary">Ir a gestió de servicios</a>
+            <a href="{{ url('/sala') }}" class="btn btn-primary">Ir a gestió de salas</a>
           </div>
         </div>
       </div>

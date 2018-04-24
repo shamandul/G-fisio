@@ -90,9 +90,9 @@ new Vue({
 
         if(this.registrados[0].role == 'empleado' || this.registrados[0].role == 'admin' ){
           urlCitas = 'citas?page=' + page;
-          axios.get(urlCitas).then(response=>{
-            this.citas = response.data.citas.data,
-            this.pagination =response.data.pagination
+        axios.get(urlCitas).then(response=>{
+          this.citas = response.data.citas.data,
+          this.pagination =response.data.pagination
           });
         }else{
           urlCitas = 'citas/showAllUser/'+ this.registrados[0].id +'?page=' + page;

@@ -4,6 +4,16 @@
 @endsection
 @section('content')
 <div class="container">
+  <div class="row">
+    <div class="col-sd-12">
+      <div class="card">
+        <div class="card-body">
+           <img class="card-img-top img-tamano" src="{{ asset('img/servicios.svg') }}" alt="Card image cap">
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
   <div  id="servicio-crud" class="row">
     <div class="col-sm-12">
       <h1 class="page-header">Servicios</h1>

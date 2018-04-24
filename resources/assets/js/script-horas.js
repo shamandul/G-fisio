@@ -1,4 +1,3 @@
-// require('./bootstrap');
 // obtener las horas
 
 new Vue({

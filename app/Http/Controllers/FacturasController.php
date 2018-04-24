@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Factura;
+use Illuminate\Support\Facades\Auth;
 
 class FacturasController extends Controller
 {
@@ -15,7 +16,17 @@ class FacturasController extends Controller
      */
     public function index()
     {
-      $facturas = Factura::orderBy('id','DESC')->paginate(4);
+      if(Auth::user()->role  == 'empleado' || Auth::user()->role  == 'admin'){
+
+        $facturas = Factura::orderBy('id','DESC')->paginate(4);
+      }else {
+        $id = 19;
+        $facturas = DB::table('citas')
+        ->join('facturas', 'facturas.id_citas', '=', 'citas.id')
+        ->select('facturas.id', 'facturas.fecha_emision', 'facturas.estado',
+        'facturas.fecha_pago', 'facturas.id_citas')
+          ->where('citas.id_users', $id)->paginate(4);
+      }
 
       return [
         'pagination' => [

@@ -27,7 +27,11 @@
                 <th>Estado</th>
                 <th>Fecha de pago</th>
                 <th>ID de la cita</th>
+              @if( Auth::user()->role  == 'empleado' || Auth::user()->role  == 'admin')
                 <th colspan="3">&nbsp;</th>
+              @else
+                <th>&nbsp;</th>
+              @endif
               </tr>
             </thead>
             <tbody>
@@ -40,12 +44,14 @@
                 <td width="10px">
                   <a class="btn btn-success btn-sm" v-bind:href="'facturas/factura/' + factura.id_citas" >Ver factura</a>
                 </td>
+                @if( Auth::user()->role  == 'empleado' || Auth::user()->role  == 'admin')
                 <td width="10px">
                   <a class="btn btn-warning btn-sm" v-on:click.prevent="editFactura(factura)">Editar</a>
                 </td>
                 <td width="10px">
                   <a class="btn btn-danger btn-sm" v-on:click.prevent="deleteFactura(factura)">Eliminar</a>
                 </td>
+              @endif
               </tr>
             </tbody>
           </table>

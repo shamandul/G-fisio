@@ -13,16 +13,24 @@
           </div>
           <div class="row">
             <div class="col-sm-12 col-md-3">
-              <p>Icono red social</p>
+              <a href="#">
+                <img src="{{asset('img/google-plus.svg')}}" alt="Google plus" class="icon-social" />
+              </a>
             </div>
             <div class="col-sm-12 col-md-3">
-              <p>Icono red social</p>
+              <a href="#">
+                <img src="{{asset('img/facebook.svg')}}" alt="facebook" class="icon-social" />
+              </a>
             </div>
             <div class="col-sm-12 col-md-3">
-              <p>Icono red social</p>
+              <a href="#">
+                <img src="{{asset('img/twitter.svg')}}" alt="Twitter" class="icon-social" />
+              </a>
             </div>
             <div class="col-sm-12 col-md-3">
-              <p>Icono red social</p>
+              <a href="#">
+                <img src="{{asset('img/youtube.svg')}}" alt="Youtube" class="icon-social" />
+              </a>
             </div>
           </div>
       </div>

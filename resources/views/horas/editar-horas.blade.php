@@ -9,13 +9,13 @@
       </div>
       <div class="modal-body">
           <label for="hora_inicio">Hora de Inicio</label>
-          <input type="text" name="hora_inicio" class="form-control" v-model="datosHora.hora_inicio">
+          <input type="time" name="hora_inicio" class="form-control" v-model="datosHora.hora_inicio" required>
 
           <label for="hora_fin">Hora def fin</label>
-          <input type="text" name="hora_fin" class="form-control" v-model="datosHora.hora_fin">
+          <input type="time" name="hora_fin" class="form-control" v-model="datosHora.hora_fin" required>
 
           <label for="denominacion">Denominación</label>
-          <input type="text" name="denominacion" class="form-control" v-model="datosHora.denominacion">
+          <input type="text" name="denominacion" class="form-control" v-model="datosHora.denominacion" required>
 
           <span v-for="error in errors" class="text-danger"> @{{error}} </span>
       </div>

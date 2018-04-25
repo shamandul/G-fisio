@@ -8,14 +8,14 @@
       </div>
       <div class="modal-body">
           <label for="hora_inicio">Hora inicio</label>
-          <input type="text" name="hora_inicio" class="form-control" v-model="newHoraInicio">
+          <input type="time" name="hora_inicio" class="form-control" v-model="newHoraInicio" required>
 
           <label for="hora_fin">Hora final</label>
-          <input type="text" name="hora_fin" class="form-control" v-model="newHoraFin">
+          <input type="time" name="hora_fin" class="form-control" v-model="newHoraFin" required>
 
           <label for="denominacion">Denominación</label>
-          <input type="text" name="denominacion" class="form-control" v-model="newDenominacion">
-          
+          <input type="text" name="denominacion" class="form-control" v-model="newDenominacion" required>
+
           <span v-for="error in errors" class="text-danger"> @{{error}} </span>
       </div>
       <div class="modal-footer">

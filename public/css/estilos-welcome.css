@@ -81,27 +81,3 @@ html, body {
     background-size: cover;
     height: 100%;
 }
-
-.texto {
-    background-color: #B3E5FC;
-    color: #000;
-    margin: 0 auto;
-    padding-left: 5vw;
-    padding-right: 5vw;
-    text-align: justify;
-}
-.texto h1{
-  padding-top: 2em;
-}
-.lista{
-  padding-left: 25vw;
-  padding-right: 25vw;
-  text-align: left;
-}
-.icon-social{
-
-  width: 5vw;
-  height: 5vh;
-  min-width: 100px;
-  min-height: 100px;
-}

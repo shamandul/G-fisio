@@ -6,8 +6,16 @@
       <div class="col-sd-12 col-md-8 ">
           <div class="row">
             <div class="col-sm-12">
-              <p class="text-center">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <p >
+                Aplicación web desarrollada para el Ciclo Formativo de Grado Superior de
+                Desarrollo de Aplicaciones Web.
+              </p>
+              <p>
+                Puedes descargarte el código completo en GitLab en el siguiente enlace:
+              </p>
+              <a href="#">G-Fisio</a>
+              <p>
+                Puedes seguirnos a través de las redes sociales.
               </p>
             </div>
           </div>

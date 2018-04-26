@@ -41,8 +41,6 @@ class FacturasController extends Controller
       ];
     }
 
-
-
     /**
      *  Método que nos permite guardar la factura.
      *

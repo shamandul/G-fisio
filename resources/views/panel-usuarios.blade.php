@@ -60,7 +60,7 @@
                   <tr v-for="user in users">
                     <td>@{{user.id}}</td>
                     <td>@{{user.nombre}}</td>
-                    <td>@{{user.apellido}}</td>
+                    <td>@{{user.apellidos}}</td>
                     <td>@{{user.telefono}}</td>
                     <td>@{{user.direccion}}</td>
                     <td>@{{user.role}}</td>

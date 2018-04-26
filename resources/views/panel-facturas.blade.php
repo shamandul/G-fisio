@@ -18,7 +18,9 @@
     <div class="col-sm-12">
       <h1 class="page-header">Facturas</h1>
       <div class="col-sm-12">
+        @if( Auth::user()->role  != 'cliente')
           <a class="btn btn-primary pull-right" data-toggle="modal" v-on:click.prevent="newEstadoVista()">Nueva factura</a>
+        @endif
           <table class="table table-hover table-striped">
             <thead>
               <tr>

@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
           <label for="nombre_servicio">Nombre de la sala</label>
-          <input type="text" name="nombre_sala" class="form-control" v-model="datosSala.nombre_sala">
+          <input type="text" name="nombre_sala" class="form-control" v-model="datosSala.nombre_sala" required>
           <span v-for="error in errors" class="text-danger"> @{{error}} </span>
       </div>
       <div class="modal-footer">

@@ -174,7 +174,8 @@ new Vue({
         $('#editar').modal('hide');
         toastr.success('La Hora se ha actualizado correctamente');
       }).catch(function (error) {
-        _this3.errors = error.response.data;
+        // this.errors= error.response.data;
+        toastr.error('La Hora no se ha actualizado correctamente');
       });
     },
     createHora: function createHora() {
@@ -195,7 +196,8 @@ new Vue({
         $('#nuevo').modal('hide');
         toastr.success('La hora fue guardado correctamente');
       }).catch(function (error) {
-        _this4.errors = error.response.data;
+        // this.errors= error.response.data;
+        toastr.error('La Hora no fue guardada');
       });
     },
     changePage: function changePage(page) {

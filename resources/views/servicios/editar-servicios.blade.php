@@ -9,13 +9,13 @@
       </div>
       <div class="modal-body">
           <label for="nombre_servicio">Nombre del servicio</label>
-          <input type="text" name="nombre_servicio" class="form-control" v-model="datosServicio.nombre_servicio">
+          <input type="text" name="nombre_servicio" class="form-control" v-model="datosServicio.nombre_servicio" required>
 
           <label for="descripcion">Descripción</label>
-          <input type="text" name="descripcion" class="form-control" v-model="datosServicio.descripcion">
+          <input type="text" name="descripcion" class="form-control" v-model="datosServicio.descripcion" required>
 
           <label for="precio">Precio</label>
-          <input type="text" name="precio" class="form-control" v-model="datosServicio.precio">
+          <input type="number" name="precio" class="form-control" v-model="datosServicio.precio" required>
           <span v-for="error in errors" class="text-danger"> @{{error}} </span>
       </div>
       <div class="modal-footer">

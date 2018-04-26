@@ -20,7 +20,7 @@ class FacturasController extends Controller
 
         $facturas = Factura::orderBy('id','DESC')->paginate(4);
       }else {
-        $id = 19;
+        $id =Auth::user()->id ;
         $facturas = DB::table('citas')
         ->join('facturas', 'facturas.id_citas', '=', 'citas.id')
         ->select('facturas.id', 'facturas.fecha_emision', 'facturas.estado',

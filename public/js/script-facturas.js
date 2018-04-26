@@ -155,7 +155,7 @@ new Vue({
         _this.facturas = response.data.facturas.data, _this.pagination = response.data.pagination;
       });
     },
-    getCitas: function getCitas(page) {
+    getCitas: function getCitas() {
       var _this2 = this;
 
       // Obtenemos todas las citas
@@ -245,6 +245,7 @@ new Vue({
         mes = '0' + mes;
       }
       this.newFechaPago = hoy.getFullYear() + '-' + mes + '-' + dia;
+      this.getCitas();
       $('#nuevo').modal('show');
     }
 

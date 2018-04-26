@@ -28,7 +28,7 @@ new Vue({
       'to':0
     },
     newFecha: '',
-    newEstado:'',
+    newEstado:'pendiente',
     newIdServicio: '',
     newIdSala: '',
     newIdHora: '',
@@ -102,20 +102,6 @@ new Vue({
           });
         }
       });
-      // if(this.registrados[0].role == 'empleado' || this.registrados[0].role == 'admin' ){
-      //   urlCitas = 'citas?page=' + page;
-      //   axios.get(urlCitas).then(response=>{
-      //     this.citas = response.data.citas.data,
-      //     this.pagination =response.data.pagination
-      //   });
-      // }else{
-      //   urlCitas = 'citas/showAllUser/'+this.registrados[0].id+'?page=' + page;
-      //   axios.get(urlCitas).then(response=>{
-      //     this.citas = response.data.citas.data,
-      //     this.pagination =response.data.pagination
-      //   });
-      // }
-
     },
     getServicios: function(){
       var url = 'servicios/showAll';
@@ -164,7 +150,7 @@ new Vue({
         this.getCitas();
         toastr.success('La cita fue eliminada correctamente');
       }).catch(error => {
-        this.errors= error.response.data;
+        // this.errors= error.response.data;
         toastr.error('La cita no se eliminó');
       });
     },
@@ -276,7 +262,7 @@ new Vue({
               this.datosAtiende.id_users = this.newIdEmpleado;
               this.createAtiende();
               this.newFecha = '';
-              this.newEstado = '';
+              this.newEstado = 'pendiente';
               this.newIdServicio= '';
               this.newIdSala = '';
               this.newIdHora = '';

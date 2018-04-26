@@ -82,7 +82,8 @@ new Vue({
           $('#editar').modal('hide');
           toastr.success('El servicio se ha actualizado correctamente');
       }).catch(error => {
-        this.errors= error.response.data;
+        // this.errors= error.response.data;
+        toastr.error('El servicio  no se ha actualizado correctamente');
       });
     },
     createServicio: function(){
@@ -101,7 +102,8 @@ new Vue({
               $('#nuevo').modal('hide');
               toastr.success('El servicio fue guardado correctamente');
           }).catch(error => {
-            this.errors= error.response.data;
+            // this.errors= error.response.data;
+            toastr.error('El servicio  no fue guardado');
           });
     },
     changePage: function(page){

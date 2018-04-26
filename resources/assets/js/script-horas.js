@@ -91,7 +91,8 @@ new Vue({
           $('#editar').modal('hide');
           toastr.success('La Hora se ha actualizado correctamente');
       }).catch(error => {
-        this.errors= error.response.data;
+        // this.errors= error.response.data;
+        toastr.error('La Hora no se ha actualizado correctamente');
       });
     },
     createHora: function(){
@@ -110,7 +111,8 @@ new Vue({
               $('#nuevo').modal('hide');
               toastr.success('La hora fue guardado correctamente');
           }).catch(error => {
-            this.errors= error.response.data;
+            // this.errors= error.response.data;
+            toastr.error('La Hora no fue guardada');
           });
     },
     changePage: function(page){

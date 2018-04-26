@@ -81,7 +81,8 @@ new Vue({
           $('#editar').modal('hide');
           toastr.success('La sala se ha actualizado correctamente');
       }).catch(error => {
-        this.errors= error.response.data;
+        // this.errors= error.response.data;
+        toastr.error('La sala  no se ha actualizado correctamente');
       });
     },
     createSala: function(){
@@ -96,7 +97,8 @@ new Vue({
               $('#nuevo').modal('hide');
               toastr.success('La sala fue guardada correctamente');
           }).catch(error => {
-            this.errors= error.response.data;
+            // this.errors= error.response.data;
+            toastr.error('La sala  no fue guardada');
           });
     },
     changePage: function(page){

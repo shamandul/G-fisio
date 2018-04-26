@@ -76,7 +76,7 @@ new Vue({
         this.pagination =response.data.pagination
       });
     },
-    getCitas: function(page){
+    getCitas: function(){
       // Obtenemos todas las citas
       var urlCitas = 'citas/citasInNotFacturas';
       axios.get(urlCitas).then(response=>{
@@ -158,6 +158,7 @@ new Vue({
         mes = '0' + mes;
       }
       this.newFechaPago = hoy.getFullYear() + '-'+ mes  + '-' + dia;
+      this.getCitas();
       $('#nuevo').modal('show');
     }
 

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Panel</div>
+                <div class="panel-heading">G-Fisio</div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Bienvenido a G-Fisio!
+                    Bienvenido a G-Fisio
                 </div>
             </div>
         </div>

@@ -10,9 +10,17 @@
       <div class="modal-body">
           <label for="fecha">fecha de la cita</label>
           <input type="date" name="fecha" class="form-control" v-model="datosCita.fecha" require>
-
-          <label for="estado">Estado</label>
-          <input type="text" name="estado" class="form-control" v-model="datosCita.estado" require>
+          @if( Auth::user()->role  == 'cliente')
+            <label for="estado">Estado</label>
+            <input type="text" name="estado" class="form-control" v-model="datosCita.estado" readonly require>
+          @else
+            <label for="estado">Estado</label><br>
+            <select class="custom-select" name="estado" v-model="datosCita.estado" required>
+              <option selected value="pendiente">Pendiente</option>
+              <option value="confirmado">Confirmado</option>
+              <option value="incidencia">Incidencia</option>
+             </select><br/>
+           @endif
 
           <label for="nombre_servicio">Servicio</label><br/>
           <select class="custom-select" name="nombre_servicio" v-model="datosCita.id_servicios" require>

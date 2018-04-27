@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/registro/email/{codigo_activacion}', 'Auth\RegisterController@confirmEmail');
   // vista solo para usuarios registrados
-Route::group(['middleware' => ['auth']], function(){
+Route::group(['middleware' => ['auth', 'activo']], function(){
   Route::get('/servicio', function () {
       return view('servicios');
   });

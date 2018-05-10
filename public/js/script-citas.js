@@ -76,25 +76,28 @@ module.exports = __webpack_require__(48);
 /***/ 48:
 /***/ (function(module, exports) {
 
-// require('./bootstrap');
 // obtener los Citas
 
 new Vue({
   el: '#cita-crud',
   created: function created() {
-    // this.getRegistrado();
     this.getServicios();
     this.getCitas();
     this.getHoras();
     this.getSalas();
     this.getEmpleados();
+    this.getClientes();
   },
   data: {
     citas: [],
     servicios: [],
     registrados: [],
     empleados: [],
+    users: [],
     salas: [],
+    salaActual: [],
+    horaActual: [],
+    empleadoActual: [],
     horas: [],
     atiende: [],
     pagination: {
@@ -111,7 +114,10 @@ new Vue({
     newIdSala: '',
     newIdHora: '',
     newIdEmpleado: '',
+    newIdUser: '',
+    newIdBuscarEmpleado: '',
     id_atiende: '',
+    idCliente: '',
     errors: [],
     datosCita: {
       'id': '',
@@ -213,12 +219,20 @@ new Vue({
         _this5.empleados = response.data;
       });
     },
-    getHoras: function getHoras() {
+    getClientes: function getClientes() {
       var _this6 = this;
+
+      var url = 'users/showClientes';
+      axios.get(url).then(function (response) {
+        _this6.users = response.data;
+      });
+    },
+    getHoras: function getHoras() {
+      var _this7 = this;
 
       var url = 'horas/showAll';
       axios.get(url).then(function (response) {
-        _this6.horas = response.data;
+        _this7.horas = response.data;
       });
     },
     deleteAtiende: function deleteAtiende(id) {
@@ -231,13 +245,13 @@ new Vue({
       });
     },
     deleteCita: function deleteCita(cita) {
-      var _this7 = this;
+      var _this8 = this;
 
       //elimina una cita
 
       var url = 'citas/' + cita.id;
       axios.delete(url).then(function (response) {
-        _this7.getCitas();
+        _this8.getCitas();
         toastr.success('La cita fue eliminada correctamente');
       }).catch(function (error) {
         // this.errors= error.response.data;
@@ -260,11 +274,11 @@ new Vue({
       $('#editar').modal('show');
     },
     buscarAtiende: function buscarAtiende() {
-      var _this8 = this;
+      var _this9 = this;
 
       var url = 'atiende/buscar?id_citas=' + this.datosCita.id + '&id_users=' + this.datosCita.id_empleado;
       axios.get(url).then(function (response) {
-        _this8.id_atiende = response.data;
+        _this9.id_atiende = response.data;
       });
     },
     getEliminarCita: function getEliminarCita(cita) {
@@ -300,15 +314,15 @@ new Vue({
       });
     },
     updateCita: function updateCita(id) {
-      var _this9 = this;
+      var _this10 = this;
 
       //this.buscarAtiende();
       this.updateAtiende(this.id_atiende);
       // actualizamos una cita
       var url = 'citas/' + id;
       axios.put(url, this.datosCita).then(function (response) {
-        _this9.getCitas();
-        _this9.datosCita = {
+        _this10.getCitas();
+        _this10.datosCita = {
           'id': '',
           'fecha': '',
           'estado': '',
@@ -317,16 +331,22 @@ new Vue({
           'id_salas': '',
           'id_horas': ''
         };
-        _this9.errors = [];
+        _this10.errors = [];
         $('#editar').modal('hide');
         toastr.success('La cita se ha actualizado correctamente');
       }).catch(function (error) {
         // this.errors= error.response.data;
         toastr.error('La cita no se ha actualizado');
       });
+      $('#siguienteEditEstado').css('visibility', 'hidden');
+      $('#siguienteEditServicio').css('visibility', 'hidden');
+      $('#siguienteEditSala').css('visibility', 'hidden');
+      $('#siguienteEditHorario').css('visibility', 'hidden');
+      $('#siguienteEditEmpleado').css('visibility', 'hidden');
+      $('#btn-actualizar').css('visibility', 'hidden');
     },
     createAtiende: function createAtiende() {
-      var _this10 = this;
+      var _this11 = this;
 
       // Método para crear una nueva atiende
       var url = 'atiende';
@@ -334,42 +354,54 @@ new Vue({
         id_citas: this.datosAtiende.id_citas,
         id_users: this.datosAtiende.id_users
       }).then(function (response) {
-        _this10.datosAtiende.id_citas = '';
-        _this10.datosAtiende.id_users = '';
-        _this10.getCitas();
+        _this11.datosAtiende.id_citas = '';
+        _this11.datosAtiende.id_users = '';
+        _this11.getCitas();
       }).catch(function (error) {
         //  this.errors= error.response.data;
         toastr.error('La cita no se ha guardado empleados');
       });
     },
     createCita: function createCita() {
-      var _this11 = this;
+      var _this12 = this;
 
       // Método para crear una nueva Cita
       var url = 'citas';
+      if (this.registrados[0].role == 'cliente') {
+        this.idCliente = this.registrados[0].id;
+      } else {
+        this.idCliente = this.newIdUser;
+      }
       axios.post(url, {
         fecha: this.newFecha,
         estado: this.newEstado,
         id_servicios: this.newIdServicio,
-        id_users: this.registrados[0].id,
+        id_users: this.idCliente,
         id_salas: this.newIdSala,
         id_horas: this.newIdHora
       }).then(function (response) {
-        _this11.datosAtiende.id_citas = response.data;
-        _this11.datosAtiende.id_users = _this11.newIdEmpleado;
-        _this11.createAtiende();
-        _this11.newFecha = '';
-        _this11.newEstado = 'pendiente';
-        _this11.newIdServicio = '';
-        _this11.newIdSala = '';
-        _this11.newIdHora = '';
-        _this11.errors = [];
+        _this12.datosAtiende.id_citas = response.data;
+        _this12.datosAtiende.id_users = _this12.newIdEmpleado;
+        _this12.createAtiende();
+        _this12.newFecha = '';
+        _this12.newEstado = 'pendiente';
+        _this12.newIdServicio = '';
+        _this12.newIdSala = '';
+        _this12.newIdHora = '';
+        _this12.errors = [];
         $('#nuevo').modal('hide');
         toastr.success('La cita fue guardada correctamente');
       }).catch(function (error) {
         // this.errors= error.response.data;
         toastr.error('La cita no se ha guardado');
       });
+      $('#siguienteEstado').css('visibility', 'hidden');
+      $('#siguienteServicio').css('visibility', 'hidden');
+      $('#siguienteSala').css('visibility', 'hidden');
+      $('#siguienteHorario').css('visibility', 'hidden');
+      $('#siguienteCliente').css('visibility', 'hidden');
+      $('#siguienteEmpleado').css('visibility', 'hidden');
+      $('#btn-guardar').css('visibility', 'hidden');
     },
     changePage: function changePage(page) {
       // Metodo para cambiar de página
@@ -378,9 +410,199 @@ new Vue({
     },
     newCita: function newCita() {
       $('#nuevo').modal('show');
-    }
+    },
+    newBuscarPorCliente: function newBuscarPorCliente() {
+      this.getClientes();
+      $('#buscarPorClientes').modal('show');
+    },
+    buscarClientes: function buscarClientes(page) {
+      var _this13 = this;
 
+      // Buscar las cita por clientes
+      var $id = this.newIdUser;
+      var urlCitas = 'citas/getCitasPorClientes/' + $id + '?page=' + page;
+      axios.get(urlCitas).then(function (response) {
+        _this13.citas = response.data.citas.data, _this13.pagination = response.data.pagination;
+      });
+      $('#buscarPorClientes').modal('hide');
+    },
+    newBuscarPorPendientes: function newBuscarPorPendientes(page) {
+      var _this14 = this;
+
+      // Buscar las cita por pendientes
+      // var $id = this.newIdUser;
+      var urlCitas = 'citas/getCitasPorPendientes?page=' + page;
+      axios.get(urlCitas).then(function (response) {
+        _this14.citas = response.data.citas.data, _this14.pagination = response.data.pagination;
+      });
+      $('#buscarPorClientes').modal('hide');
+    },
+    newBuscarPorEmpleados: function newBuscarPorEmpleados() {
+      this.getClientes();
+      $('#buscarPorEmpleados').modal('show');
+    },
+    buscarEmpleados: function buscarEmpleados(page) {
+      var _this15 = this;
+
+      // Buscar las cita por clientes
+      var $id = this.newIdBuscarEmpleado;
+      var urlCitas = 'citas/getCitasPorEmpleados/' + $id + '?page=' + page;
+      axios.get(urlCitas).then(function (response) {
+        _this15.citas = response.data.citas.data, _this15.pagination = response.data.pagination;
+      });
+      $('#buscarPorEmpleados').modal('hide');
+    },
+    siguienteFecha: function siguienteFecha() {
+
+      this.getSalasLibres();
+
+      if (this.newFecha != '') {
+        $('#siguienteEstado').css('visibility', 'visible');
+      }
+    },
+    siguienteEstado: function siguienteEstado() {
+      if (this.newEstado != '') {
+        $('#siguienteServicio').css('visibility', 'visible');
+      }
+    },
+    siguienteServicio: function siguienteServicio() {
+      if (this.newIdServicio != '') {
+        $('#siguienteSala').css('visibility', 'visible');
+      }
+    },
+    getSalasLibres: function getSalasLibres() {
+      var _this16 = this;
+
+      var fecha = this.newFecha;
+      var url = 'salas/showAllLibre/' + fecha;
+      axios.get(url).then(function (response) {
+        _this16.salas = response.data;
+      });
+    },
+    siguienteSala: function siguienteSala() {
+      if (this.newIdSala != '') {
+        $('#siguienteHorario').css('visibility', 'visible');
+      }
+    },
+    getHorasLibres: function getHorasLibres() {
+      var _this17 = this;
+
+      var fecha = this.newFecha;
+      var url = 'horas/showAllLibre/' + fecha;
+      axios.get(url).then(function (response) {
+        _this17.horas = response.data;
+      });
+    },
+    siguienteHorario: function siguienteHorario() {
+      if (this.registrados[0].role != 'cliente') {
+        if (this.newIdHora != '') {
+          $('#siguienteCliente').css('visibility', 'visible');
+        }
+      } else {
+        if (this.newIdHora != '') {
+          $('#siguienteEmpleado').css('visibility', 'visible');
+        }
+      }
+      this.getEmpleadosLibres();
+    },
+    getEmpleadosLibres: function getEmpleadosLibres() {
+      var _this18 = this;
+
+      var fecha = this.newFecha;
+      var hora = this.newIdHora;
+      var url = 'users/showAllEmpleadosLibre/' + fecha + '/' + hora;
+      axios.get(url).then(function (response) {
+        _this18.empleados = response.data;
+      });
+    },
+    siguienteEmpleado: function siguienteEmpleado() {
+      if (this.newIdEmpleado != '') {
+        $('#btn-guardar').css('visibility', 'visible');
+      }
+    },
+    siguienteCliente: function siguienteCliente() {
+      if (this.newIdUser != '') {
+        $('#siguienteEmpleado').css('visibility', 'visible');
+      }
+    },
+    siguienteEditFecha: function siguienteEditFecha() {
+
+      this.getSalasEditLibres();
+      this.getHorasEditLibres();
+
+      if (this.datosCita.fecha != '') {
+        $('#siguienteEditEstado').css('visibility', 'visible');
+      }
+    },
+    siguienteEditEstado: function siguienteEditEstado() {
+      if (this.datosCita.estado != '') {
+        $('#siguienteEditServicio').css('visibility', 'visible');
+      }
+    },
+    siguienteEditServicio: function siguienteEditServicio() {
+      if (this.datosCita.id_servicios != '') {
+        $('#siguienteEditSala').css('visibility', 'visible');
+      }
+    },
+    getSalasEditLibres: function getSalasEditLibres() {
+      var _this19 = this;
+
+      var fecha = this.datosCita.fecha;
+      var sala = this.datosCita.id_salas;
+      var url = 'salas/showAllLibre/' + fecha;
+      axios.get(url).then(function (response) {
+        _this19.salas = response.data;
+      });
+      url = 'salas/showAllEditLibre/' + sala;
+      axios.get(url).then(function (response) {
+        _this19.salaActual = response.data;
+      });
+    },
+    siguienteEditSala: function siguienteEditSala() {
+      if (this.datosCita.id_salas != '') {
+        $('#siguienteEditHorario').css('visibility', 'visible');
+      }
+    },
+    getHorasEditLibres: function getHorasEditLibres() {
+      var _this20 = this;
+
+      var fecha = this.datosCita.fecha;
+      var hora = this.datosCita.id_horas;
+      var url = 'horas/showAllLibre/' + fecha;
+      axios.get(url).then(function (response) {
+        _this20.horas = response.data;
+      });
+      url = 'horas/showAllEditLibre/' + hora;
+      axios.get(url).then(function (response) {
+        _this20.horaActual = response.data;
+      });
+    },
+    siguienteEditHorario: function siguienteEditHorario() {
+      $('#siguienteEditEmpleado').css('visibility', 'visible');
+      this.getEmpleadosEditLibres();
+    },
+    getEmpleadosEditLibres: function getEmpleadosEditLibres() {
+      var _this21 = this;
+
+      var fecha = this.datosCita.fecha;
+      var hora = this.datosCita.id_horas;
+      var empleado = this.datosCita.id_empleado;
+      var url = 'users/showAllEmpleadosLibre/' + fecha + '/' + hora;
+      axios.get(url).then(function (response) {
+        _this21.empleados = response.data;
+      });
+      url = 'users/showEmpleadoActual/' + empleado;
+      axios.get(url).then(function (response) {
+        _this21.empleadoActual = response.data;
+      });
+    },
+    siguienteEditEmpleado: function siguienteEditEmpleado() {
+      if (this.datosCita.id_empleado != '') {
+        $('#btn-actualizar').css('visibility', 'visible');
+      }
+    }
   }
+
 });
 
 /***/ })

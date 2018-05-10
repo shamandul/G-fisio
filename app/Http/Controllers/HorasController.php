@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Hora;
 
 class HorasController extends Controller
@@ -42,6 +43,42 @@ class HorasController extends Controller
         return $horas;
     }
 
+    /**
+     * Nos devuelve todas las Horas para una fecha dada
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param String $fecha
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllLibre($fecha)
+    {
+        $horas =  DB::table('horas')
+        ->select('horas.*')
+        ->whereNotIn('id', function($query) use($fecha){
+          $query->select('citas.id_horas')
+          ->where('citas.fecha' , $fecha)
+          ->from('citas');
+        })
+        ->get();
+
+        return $horas;
+    }
+
+    /**
+     * Nos devuelve  la hora actual
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param Int $hora
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllEditLibre($hora)
+    {
+
+        $horas = DB::table('horas')
+        ->select('*')->where('id', $hora)->get();
+
+        return $horas;
+    }
 
     /**
      * Método que nos permite guardar las horas.

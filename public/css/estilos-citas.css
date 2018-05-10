@@ -1,0 +1,52 @@
+/*Estilos para algunos componentes de citas*/
+#siguienteEstado{
+  visibility: hidden;
+}
+#siguienteServicio{
+  visibility: hidden;
+}
+#siguienteSala{
+  visibility: hidden;
+}
+#siguienteHorario{
+  visibility: hidden;
+}
+#siguienteCliente{
+  visibility: hidden;
+}
+#siguienteEmpleado{
+  visibility: hidden;
+}
+#btn-guardar{
+  visibility: hidden;
+}
+.fondo-rojo{
+  background-color: #D50000;
+  color: #fff;
+}
+.fondo-verde{
+  background-color: #1B5E20;
+  color: #fff;
+}
+.fondo-amarillo{
+  background-color: #FF6F00;
+  color: #000;
+}
+#siguienteEditEstado{
+  visibility: hidden;
+}
+#siguienteEditServicio{
+  visibility: hidden;
+}
+#siguienteEditSala{
+  visibility: hidden;
+}
+#siguienteEditHorario{
+  visibility: hidden;
+}
+#siguienteEditEmpleado{
+  visibility: hidden;
+}
+#btn-actualizar{
+  visibility: hidden;
+}

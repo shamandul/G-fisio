@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Sala;
 
 
@@ -40,6 +41,43 @@ class SalasController extends Controller
     public function showAll()
     {
         $salas = Sala::orderBy('nombre_sala')->get();
+
+        return $salas;
+    }
+    /**
+     * Nos devuelve todos las salas libres para una fecha dada
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param string $fecha
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllLibre($fecha)
+    {
+        $salas = DB::table('salas')
+        ->select('salas.*')
+        ->whereNotIn('id', function($query) use($fecha){
+          $query->select('citas.id_salas')
+          ->where('citas.fecha' , $fecha)
+          ->from('citas');
+        })
+        ->get();
+
+
+        return $salas;
+    }
+
+    /**
+     * Nos devuelve la salas actual
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param Int $sala
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllEditLibre($sala)
+    {
+
+        $salas = DB::table('salas')
+        ->select('*')->where('id', $sala)->get();
 
         return $salas;
     }

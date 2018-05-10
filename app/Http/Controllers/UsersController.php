@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use Auth;
 
@@ -51,9 +52,8 @@ class UsersController extends Controller
 
       return $empleados;
     }
-
     /**
-     * Método que nos devuelve todos los empleados.
+     * Método que nos devuelve todos los Clientes.
      *
      * @return \Illuminate\Http\Response
      */
@@ -84,5 +84,48 @@ class UsersController extends Controller
       ]);
       User::find($id)->update($request->all());
       return;
+    }
+    /**
+     * Nos devuelve todos los empleados libres para una fecha dada y
+     * una hora dada
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param string $fecha
+     * @param Int $hora
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllEmpleadosLibre($fecha, $hora)
+    {
+        $empleados = DB::table('users')
+        ->select('users.*')
+        ->whereNotIn('users.id', function($query) use($fecha,$hora){
+            $query->select('atiende.id_users')
+                  ->whereIn('atiende.id_citas' ,function ($query) use($fecha, $hora){
+                    $query->select('citas.id')
+                          ->where([['citas.fecha', '=', $fecha ],
+                                  ['citas.id_horas','=', $hora]])
+                          ->from('citas');
+                  })
+                  ->from('atiende');
+        })
+        ->where('users.role', '=', 'empleado')
+        ->get();
+
+        return $empleados;
+    }
+
+    /**
+     * Nos devuelve el empleado actual
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param Int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showEmpleadoActual($id)
+    {
+        $empleados = DB::table('users')
+        ->select('*')->where('id', $id)->get();
+
+        return $empleados;
     }
 }

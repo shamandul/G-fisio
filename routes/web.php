@@ -56,6 +56,8 @@ Route::group(['middleware' => ['auth', 'activo']], function(){
       'create', 'show', 'edit'
   ]);
   Route::get('salas/showAll', 'SalasController@showAll')->name('salas.showAll');
+  Route::get('salas/showAllLibre/{fecha}', 'SalasController@showAllLibre')->name('salas.showAllLibre');
+  Route::get('salas/showAllEditLibre/{sala}', 'SalasController@showAllEditLibre')->name('salas.showAllEditLibre');
   // rutas para citas
   Route::resource('citas', 'CitasController')->except([
       'create', 'show', 'edit'
@@ -64,6 +66,9 @@ Route::group(['middleware' => ['auth', 'activo']], function(){
   Route::get('citas/ultimoIdInsertado', 'CitasController@ultimoIdInsertado')->name('citas.ultimoIdInsertado');
   Route::get('citas/citasInNotFacturas', 'CitasController@citasInNotFacturas')->name('citas.citasInNotFacturas');
   Route::get('citas/showAllUser/{id}', 'CitasController@showAllUser')->name('citas.showAllUser');
+  Route::get('citas/getCitasPorClientes/{id}', 'CitasController@getCitasPorClientes')->name('citas.getCitasPorClientes');
+  Route::get('citas/getCitasPorEmpleados/{id}', 'CitasController@getCitasPorEmpleados')->name('citas.getCitasPorEmpleados');
+  Route::get('citas/getCitasPorPendientes', 'CitasController@getCitasPorPendientes')->name('citas.getCitasPorPendientes');
 
 
   // rutas para horas
@@ -71,6 +76,8 @@ Route::group(['middleware' => ['auth', 'activo']], function(){
       'create', 'show', 'edit'
   ]);
   Route::get('horas/showAll', 'HorasController@showAll')->name('horas.showAll');
+  Route::get('horas/showAllLibre/{fecha}', 'HorasController@showAllLibre')->name('horas.showAllLibre');
+  Route::get('horas/showAllEditLibre/{hora}', 'HorasController@showAllEditLibre')->name('horas.showAllEditLibre');
 
   // rutas para users
   Route::resource('users', 'UsersController')->except([
@@ -80,6 +87,8 @@ Route::group(['middleware' => ['auth', 'activo']], function(){
   Route::get('users/showClientes', 'UsersController@showClientes')->name('users.showClientes');
   Route::get('users/showUserSession', 'UsersController@showUserSession')->name('users.showUserSession');
   Route::get('users/lista', 'UsersController@lista')->name('users.lista');
+  Route::get('users/showAllEmpleadosLibre/{fecha}/{hora}', 'UsersController@showAllEmpleadosLibre')->name('users.showAllEmpleadosLibre');
+  Route::get('users/showEmpleadoActual/{id}', 'UsersController@showEmpleadoActual')->name('users.showEmpleadoActual');
   // rutas para atiende
   Route::resource('atiende', 'AtiendeController')->except([
       'create', 'show', 'edit'

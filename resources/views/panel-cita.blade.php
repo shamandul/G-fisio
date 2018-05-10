@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('estilos')
   <link href="{{ asset('css/toastr.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/estilos-citas.css') }}" rel="stylesheet">
 @endsection
 @section('content')
 <div class="container">
@@ -18,6 +19,11 @@
     <div class="col-sm-12">
       <h1 class="page-header">Citas</h1>
       <div class="col-sm-12">
+        @if(Auth::user()->role  != 'cliente')
+          <a class="btn btn-success pull-left" data-toggle="modal" v-on:click.prevent="newBuscarPorCliente()">Clientes <img src="img/ic_search_black_24px.svg" alt="Buscar por pendientes" /></a>
+          <a class="btn btn-warning pull-left" data-toggle="modal" v-on:click.prevent="newBuscarPorEmpleados()">Empleados <img src="img/ic_search_black_24px.svg" alt="Buscar por pendientes" /></a>
+          <a class="btn btn-danger pull-left" data-toggle="modal" v-on:click.prevent="newBuscarPorPendientes()">Pendientes <img src="img/ic_search_black_24px.svg" alt="Buscar por pendientes" /></a>
+        @endif
           <a class="btn btn-primary pull-right" data-toggle="modal" v-on:click.prevent="newCita()">Nueva cita</a>
           <table class="table table-hover table-striped">
             <thead>
@@ -37,14 +43,16 @@
               <tr v-for="cita in citas">
                 <td>@{{cita.id}}</td>
                 <td>@{{cita.fecha}}</td>
-                <td>@{{cita.estado}}</td>
+                <td v-if="cita.estado == 'pendiente'" class="fondo-rojo">@{{cita.estado}}</td>
+                <td v-else-if="cita.estado == 'confirmado'" class="fondo-verde">@{{cita.estado}}</td>
+                <td v-else class="fondo-amarillo">@{{cita.estado}}</td>
                 <td>@{{cita.nombre_servicio}}</td>
                 <td>@{{cita.nombre}} @{{cita.apellidos}}</td>
                 <td>@{{cita.denominacion}}</td>
                 <td>@{{cita.nombre_sala}}</td>
                 <td>@{{cita.nombre_empleado}} @{{cita.apellidos_empleado}}</td>
                 <td width="10px">
-                  <a class="btn btn-warning btn-sm"v-on:click.prevent="editCita(cita)">Editar</a>
+                  <a class="btn btn-warning btn-sm" v-on:click.prevent="editCita(cita)">Editar</a>
                 </td>
                 <td width="10px">
                   <a class="btn btn-danger btn-sm" v-on:click.prevent="getEliminarCita(cita)">Eliminar</a>
@@ -79,6 +87,8 @@
   @include('citas.crear-citas')
   @include('citas.editar-citas')
   @include('citas.delete-citas')
+  @include('citas.buscar-clientes')
+  @include('citas.buscar-empleados')
 </div>
 @endsection
 @section('script')

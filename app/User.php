@@ -30,12 +30,12 @@ class User extends Authenticatable
     public static function boot(){
      parent::boot();
      static::creating(function ($user){
-       $user->codigo_activacion = str_random(200);
+       $user->codigo_activacion = str_random(190);
      });
    }
    public function confirmEmail(){
      $this->activo = true;
-     $this->codigo_activacion = str_random(200);
+     $this->codigo_activacion = str_random(190);
      $this->save();
    }
 }

@@ -1,0 +1,67 @@
+{
+    "name": "Tests\\Unit\\UsersTest",
+    "line": 10,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "Tests\\Unit",
+    "file": "tests\/Unit\/UsersTest.php",
+    "relative_file": null,
+    "hash": "d0e3c84f42a0bc557367640313549f05e89ac221",
+    "parent": "Tests\\TestCase",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "TestCase": "Tests\\TestCase",
+        "WithFaker": "Illuminate\\Foundation\\Testing\\WithFaker",
+        "RefreshDatabase": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+        "User": "App\\User"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "test_vista_users": {
+            "name": "test_vista_users",
+            "line": 17,
+            "short_desc": "Test a la p\u00e1gina de usuarios",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_show_all_empleados_libre": {
+            "name": "test_show_all_empleados_libre",
+            "line": 56,
+            "short_desc": "Test a showAllEmpleadosLibre\nfecha 2018-04-27 y id_horo 6",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

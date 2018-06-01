@@ -1,0 +1,86 @@
+{
+    "name": "Tests\\Feature\\routerTest",
+    "line": 10,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "Tests\\Feature",
+    "file": "tests\/Feature\/routerTest.php",
+    "relative_file": null,
+    "hash": "75fd35cb0f99cb4037c300570d070a731edf88fc",
+    "parent": "Tests\\TestCase",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "TestCase": "Tests\\TestCase",
+        "WithFaker": "Illuminate\\Foundation\\Testing\\WithFaker",
+        "RefreshDatabase": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+        "User": "App\\User"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "test_welcome": {
+            "name": "test_welcome",
+            "line": 17,
+            "short_desc": "Test a la p\u00e1gina de bienvenida",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_login": {
+            "name": "test_login",
+            "line": 27,
+            "short_desc": "Test a la p\u00e1gina de login",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_register": {
+            "name": "test_register",
+            "line": 37,
+            "short_desc": "Test a la p\u00e1gina de Registro",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

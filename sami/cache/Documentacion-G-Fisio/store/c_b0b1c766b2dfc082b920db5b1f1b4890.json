@@ -1,0 +1,46 @@
+{
+    "name": "Tests\\CreatesApplication",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "Tests",
+    "file": "tests\/CreatesApplication.php",
+    "relative_file": null,
+    "hash": "3d1d3e2a19e4728d823e61e16a3d2f2635896bd8",
+    "parent": null,
+    "modifiers": null,
+    "is_trait": true,
+    "is_interface": false,
+    "aliases": {
+        "Hash": "Illuminate\\Support\\Facades\\Hash",
+        "Kernel": "Illuminate\\Contracts\\Console\\Kernel"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "createApplication": {
+            "name": "createApplication",
+            "line": 15,
+            "short_desc": "Creates the application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Foundation\\Application",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

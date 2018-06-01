@@ -1,0 +1,67 @@
+{
+    "name": "Tests\\Browser\\LoginTest",
+    "line": 10,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "Tests\\Browser",
+    "file": "tests\/Browser\/LoginTest.php",
+    "relative_file": null,
+    "hash": "30312ea95faa6b7aca664d3d456b329b1d2ffcc7",
+    "parent": "Tests\\DuskTestCase",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "DuskTestCase": "Tests\\DuskTestCase",
+        "Browser": "Laravel\\Dusk\\Browser",
+        "DatabaseMigrations": "Illuminate\\Foundation\\Testing\\DatabaseMigrations",
+        "User": "App\\User"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "test_login_page": {
+            "name": "test_login_page",
+            "line": 18,
+            "short_desc": "A Dusk test para comprobar que\nse muestra la p\u00e1gina login",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_login": {
+            "name": "test_login",
+            "line": 33,
+            "short_desc": "A Dusk test que nos permite hacer\nlogin a la aplicaci\u00f3n.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

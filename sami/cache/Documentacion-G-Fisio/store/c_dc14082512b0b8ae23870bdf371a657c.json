@@ -1,0 +1,102 @@
+{
+    "name": "App\\mail\\EmailConfirmacion",
+    "line": 11,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\mail",
+    "file": "app\/Mail\/EmailConfirmacion.php",
+    "relative_file": null,
+    "hash": "33c971545b4cdc75d4d44220db9313cb544c4c4d",
+    "parent": "Illuminate\\Mail\\Mailable",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Queueable": "Illuminate\\Bus\\Queueable",
+        "Mailable": "Illuminate\\Mail\\Mailable",
+        "SerializesModels": "Illuminate\\Queue\\SerializesModels",
+        "ShouldQueue": "Illuminate\\Contracts\\Queue\\ShouldQueue",
+        "User": "App\\User"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Bus\\Queueable": "Illuminate\\Bus\\Queueable",
+        "Illuminate\\Queue\\SerializesModels": "Illuminate\\Queue\\SerializesModels"
+    },
+    "properties": {
+        "user": {
+            "name": "user",
+            "line": 14,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": null,
+            "errors": []
+        }
+    },
+    "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 16,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "user": {
+                    "name": "user",
+                    "line": 16,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\User",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "App",
+                            "User"
+                        ],
+                        "attributes": {
+                            "startLine": 16,
+                            "endLine": 16
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "build": {
+            "name": "build",
+            "line": 21,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

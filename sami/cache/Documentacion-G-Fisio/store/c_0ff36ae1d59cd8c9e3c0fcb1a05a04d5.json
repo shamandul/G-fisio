@@ -1,0 +1,255 @@
+{
+    "name": "App\\Http\\Middleware\\TrustProxies",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Middleware",
+    "file": "app\/Http\/Middleware\/TrustProxies.php",
+    "relative_file": null,
+    "hash": "b729130edad7263a855bbbef30d3483fd7ba3231",
+    "parent": "Fideloper\\Proxy\\TrustProxies",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Middleware": "Fideloper\\Proxy\\TrustProxies"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "proxies": {
+            "name": "proxies",
+            "line": 15,
+            "short_desc": "The trusted proxies for this application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": null,
+            "errors": []
+        },
+        "headers": {
+            "name": "headers",
+            "line": 22,
+            "short_desc": "The current proxy header mappings.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": {
+                            "nodeType": "Expr_ClassConstFetch",
+                            "class": {
+                                "nodeType": "Name_FullyQualified",
+                                "parts": [
+                                    "Illuminate",
+                                    "Http",
+                                    "Request"
+                                ],
+                                "attributes": {
+                                    "startLine": 23,
+                                    "endLine": 23
+                                }
+                            },
+                            "name": "HEADER_FORWARDED",
+                            "attributes": {
+                                "startLine": 23,
+                                "endLine": 23
+                            }
+                        },
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "FORWARDED",
+                            "attributes": {
+                                "startLine": 23,
+                                "endLine": 23,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 23,
+                            "endLine": 23
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": {
+                            "nodeType": "Expr_ClassConstFetch",
+                            "class": {
+                                "nodeType": "Name_FullyQualified",
+                                "parts": [
+                                    "Illuminate",
+                                    "Http",
+                                    "Request"
+                                ],
+                                "attributes": {
+                                    "startLine": 24,
+                                    "endLine": 24
+                                }
+                            },
+                            "name": "HEADER_X_FORWARDED_FOR",
+                            "attributes": {
+                                "startLine": 24,
+                                "endLine": 24
+                            }
+                        },
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "X_FORWARDED_FOR",
+                            "attributes": {
+                                "startLine": 24,
+                                "endLine": 24,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 24,
+                            "endLine": 24
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": {
+                            "nodeType": "Expr_ClassConstFetch",
+                            "class": {
+                                "nodeType": "Name_FullyQualified",
+                                "parts": [
+                                    "Illuminate",
+                                    "Http",
+                                    "Request"
+                                ],
+                                "attributes": {
+                                    "startLine": 25,
+                                    "endLine": 25
+                                }
+                            },
+                            "name": "HEADER_X_FORWARDED_HOST",
+                            "attributes": {
+                                "startLine": 25,
+                                "endLine": 25
+                            }
+                        },
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "X_FORWARDED_HOST",
+                            "attributes": {
+                                "startLine": 25,
+                                "endLine": 25,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 25,
+                            "endLine": 25
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": {
+                            "nodeType": "Expr_ClassConstFetch",
+                            "class": {
+                                "nodeType": "Name_FullyQualified",
+                                "parts": [
+                                    "Illuminate",
+                                    "Http",
+                                    "Request"
+                                ],
+                                "attributes": {
+                                    "startLine": 26,
+                                    "endLine": 26
+                                }
+                            },
+                            "name": "HEADER_X_FORWARDED_PORT",
+                            "attributes": {
+                                "startLine": 26,
+                                "endLine": 26
+                            }
+                        },
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "X_FORWARDED_PORT",
+                            "attributes": {
+                                "startLine": 26,
+                                "endLine": 26,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 26,
+                            "endLine": 26
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": {
+                            "nodeType": "Expr_ClassConstFetch",
+                            "class": {
+                                "nodeType": "Name_FullyQualified",
+                                "parts": [
+                                    "Illuminate",
+                                    "Http",
+                                    "Request"
+                                ],
+                                "attributes": {
+                                    "startLine": 27,
+                                    "endLine": 27
+                                }
+                            },
+                            "name": "HEADER_X_FORWARDED_PROTO",
+                            "attributes": {
+                                "startLine": 27,
+                                "endLine": 27
+                            }
+                        },
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "X_FORWARDED_PROTO",
+                            "attributes": {
+                                "startLine": 27,
+                                "endLine": 27,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 27,
+                            "endLine": 27
+                        }
+                    }
+                ],
+                "attributes": {
+                    "startLine": 22,
+                    "endLine": 28,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": [],
+    "constants": []
+}

@@ -1,0 +1,239 @@
+{
+    "name": "Tests\\Unit\\ServiciosTest",
+    "line": 11,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "Tests\\Unit",
+    "file": "tests\/Unit\/ServiciosTest.php",
+    "relative_file": null,
+    "hash": "7948165446a2676600304fef3a8847918c10b5cb",
+    "parent": "Tests\\TestCase",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "TestCase": "Tests\\TestCase",
+        "WithFaker": "Illuminate\\Foundation\\Testing\\WithFaker",
+        "RefreshDatabase": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+        "User": "App\\User",
+        "Servicio": "App\\Servicio"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "test_vista_servicios": {
+            "name": "test_vista_servicios",
+            "line": 18,
+            "short_desc": "Test a la p\u00e1gina de Servicios",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_guardar_servicio_usuario_no_registrado": {
+            "name": "test_guardar_servicio_usuario_no_registrado",
+            "line": 57,
+            "short_desc": "Test a la guardar Servicio a usuario no registrado",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_guardar_servicio_usuario_registrado_no_activo": {
+            "name": "test_guardar_servicio_usuario_registrado_no_activo",
+            "line": 71,
+            "short_desc": "Test a la guardar Servicio a usuario registrado no activo",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_guardar_servicio_usuario_administrador": {
+            "name": "test_guardar_servicio_usuario_administrador",
+            "line": 89,
+            "short_desc": "Test a la guardar Servicio a usuario administrador",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_guardar_servicio_usuario_empleado": {
+            "name": "test_guardar_servicio_usuario_empleado",
+            "line": 108,
+            "short_desc": "Test a la guardar Servicio a usuario empleado",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_guardar_servicio_usuario_cliente": {
+            "name": "test_guardar_servicio_usuario_cliente",
+            "line": 127,
+            "short_desc": "Test a la guardar Servicio a usuario Cliente",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_update_servicio_usuario_no_registrado": {
+            "name": "test_update_servicio_usuario_no_registrado",
+            "line": 146,
+            "short_desc": "Test a la update servicio usuario no registrado",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_update_servicio_usuario_no_activo": {
+            "name": "test_update_servicio_usuario_no_activo",
+            "line": 164,
+            "short_desc": "Test a la update servicio usuario registrado no activo",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_update_servicio_usuario_administrador": {
+            "name": "test_update_servicio_usuario_administrador",
+            "line": 186,
+            "short_desc": "Test a la update servicio usuario administrador",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_update_servicio_usuario_empleado": {
+            "name": "test_update_servicio_usuario_empleado",
+            "line": 209,
+            "short_desc": "Test a la update servicio usuario empleado",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_update_servicio_usuario_cliente": {
+            "name": "test_update_servicio_usuario_cliente",
+            "line": 232,
+            "short_desc": "Test a la update servicio usuario cliente",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

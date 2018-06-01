@@ -1,0 +1,116 @@
+{
+    "name": "App\\Atiende",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": "app\/Atiende.php",
+    "relative_file": null,
+    "hash": "8ebf383b924f8d4153738f34fa4cc2c17492371c",
+    "parent": "Illuminate\\Foundation\\Auth\\User",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Notifiable": "Illuminate\\Notifications\\Notifiable",
+        "Authenticatable": "Illuminate\\Foundation\\Auth\\User"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Notifications\\Notifiable": "Illuminate\\Notifications\\Notifiable"
+    },
+    "properties": {
+        "fillable": {
+            "name": "fillable",
+            "line": 17,
+            "short_desc": "Estos atributos pueden ser asignados.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "id_citas",
+                            "attributes": {
+                                "startLine": 18,
+                                "endLine": 18,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 18,
+                            "endLine": 18
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "id_users",
+                            "attributes": {
+                                "startLine": 18,
+                                "endLine": 18,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 18,
+                            "endLine": 18
+                        }
+                    }
+                ],
+                "attributes": {
+                    "startLine": 17,
+                    "endLine": 19,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        },
+        "hidden": {
+            "name": "hidden",
+            "line": 26,
+            "short_desc": "Estos atributos permaneceran ocultos.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [],
+                "attributes": {
+                    "startLine": 26,
+                    "endLine": 28,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": [],
+    "constants": []
+}

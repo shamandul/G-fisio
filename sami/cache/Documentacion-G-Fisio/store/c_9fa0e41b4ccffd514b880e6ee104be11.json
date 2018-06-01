@@ -1,0 +1,66 @@
+{
+    "name": "Tests\\Browser\\RegisterTest",
+    "line": 9,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "Tests\\Browser",
+    "file": "tests\/Browser\/RegisterTest.php",
+    "relative_file": null,
+    "hash": "2ad66f2bd6fa6a3ae067f22562015a6ea5df0e13",
+    "parent": "Tests\\DuskTestCase",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "DuskTestCase": "Tests\\DuskTestCase",
+        "Browser": "Laravel\\Dusk\\Browser",
+        "DatabaseMigrations": "Illuminate\\Foundation\\Testing\\DatabaseMigrations"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "test_register_page": {
+            "name": "test_register_page",
+            "line": 17,
+            "short_desc": "A Dusk test para comprobar que\nse muestra la p\u00e1gina register",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_register": {
+            "name": "test_register",
+            "line": 32,
+            "short_desc": "A Dusk test que nos permite registar\na un usuario en la aplicaci\u00f3n.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

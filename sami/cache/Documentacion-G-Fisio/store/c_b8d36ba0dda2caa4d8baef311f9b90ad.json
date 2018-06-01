@@ -1,0 +1,67 @@
+{
+    "name": "Tests\\Unit\\CitasTest",
+    "line": 10,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "Tests\\Unit",
+    "file": "tests\/Unit\/CitasTest.php",
+    "relative_file": null,
+    "hash": "53c13a8710ace3170c7f3c86809f54bcda488f56",
+    "parent": "Tests\\TestCase",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "TestCase": "Tests\\TestCase",
+        "WithFaker": "Illuminate\\Foundation\\Testing\\WithFaker",
+        "RefreshDatabase": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+        "User": "App\\User"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "test_vista_panel_cita": {
+            "name": "test_vista_panel_cita",
+            "line": 17,
+            "short_desc": "Test a la p\u00e1gina de panel de citas",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_get_citas_por_clientes": {
+            "name": "test_get_citas_por_clientes",
+            "line": 56,
+            "short_desc": "Test a la getCitasPorClientes",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

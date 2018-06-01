@@ -1,0 +1,334 @@
+{
+    "name": "Tests\\Unit\\HorasTest",
+    "line": 11,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "Tests\\Unit",
+    "file": "tests\/Unit\/HorasTest.php",
+    "relative_file": null,
+    "hash": "cdfd583cfc1ee32694c1db1fbea3ed7bea6d34c3",
+    "parent": "Tests\\TestCase",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "TestCase": "Tests\\TestCase",
+        "WithFaker": "Illuminate\\Foundation\\Testing\\WithFaker",
+        "RefreshDatabase": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+        "User": "App\\User",
+        "Hora": "App\\Hora"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "test_vista_horas": {
+            "name": "test_vista_horas",
+            "line": 18,
+            "short_desc": "Test a la p\u00e1gina de Horas",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_guardar_hora_usuario_no_registrado": {
+            "name": "test_guardar_hora_usuario_no_registrado",
+            "line": 57,
+            "short_desc": "Test a la guardar hora usuario no registrado",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_guardar_hora_usuario_no_activo": {
+            "name": "test_guardar_hora_usuario_no_activo",
+            "line": 72,
+            "short_desc": "Test a la guardar hora usuario no activo",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_guardar_hora_usuario_administrador": {
+            "name": "test_guardar_hora_usuario_administrador",
+            "line": 91,
+            "short_desc": "Test a la guardar hora usuario administrador",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_guardar_hora_usuario_empleado": {
+            "name": "test_guardar_hora_usuario_empleado",
+            "line": 111,
+            "short_desc": "Test a la guardar hora usuario empleado",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_guardar_hora_usuario_cliente": {
+            "name": "test_guardar_hora_usuario_cliente",
+            "line": 131,
+            "short_desc": "Test a la guardar hora usuario",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_update_hora_usuario_no_registrado": {
+            "name": "test_update_hora_usuario_no_registrado",
+            "line": 151,
+            "short_desc": "Test a la update hora usuario no registrado",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_update_hora_usuario_registrado_no_activo": {
+            "name": "test_update_hora_usuario_registrado_no_activo",
+            "line": 169,
+            "short_desc": "Test a la update hora usuario no activo",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_update_hora_usuario_administrador": {
+            "name": "test_update_hora_usuario_administrador",
+            "line": 191,
+            "short_desc": "Test a la update hora usuario administrador",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_update_hora_usuario_empleado": {
+            "name": "test_update_hora_usuario_empleado",
+            "line": 215,
+            "short_desc": "Test a la update hora usuario empleado",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_update_hora_usuario_cliente": {
+            "name": "test_update_hora_usuario_cliente",
+            "line": 239,
+            "short_desc": "Test a la update hora usuario cliente",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_delete_hora_usuario_no_registrado": {
+            "name": "test_delete_hora_usuario_no_registrado",
+            "line": 263,
+            "short_desc": "Test a la delete hora usuario no registrado",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_delete_hora_usuario_registrado_no_activo": {
+            "name": "test_delete_hora_usuario_registrado_no_activo",
+            "line": 277,
+            "short_desc": "Test a la delete hora usuario no activo",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_delete_hora_usuario_administrador": {
+            "name": "test_delete_hora_usuario_administrador",
+            "line": 295,
+            "short_desc": "Test a la delete hora usuario administrador",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_delete_hora_usuario_empleado": {
+            "name": "test_delete_hora_usuario_empleado",
+            "line": 315,
+            "short_desc": "Test a la delete hora usuario empleado",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "test_delete_hora_usuario_cliente": {
+            "name": "test_delete_hora_usuario_cliente",
+            "line": 335,
+            "short_desc": "Test a la delete hora usuario cliente",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

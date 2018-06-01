@@ -7,4 +7,4 @@ Está desarrollada con el framework de Laravel para la parte de back-ends y se u
 
 ## Enlaces de interés
 
--[Documentación](http://webweaver.es)
+-[Documentación](http://g-fisio.webweaver.es/g-fisio/sami/build/Documentacion-G-Fisio/)

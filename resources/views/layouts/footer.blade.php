@@ -13,7 +13,7 @@
               <p>
                 Puedes descargarte el código completo en GitLab en el siguiente enlace:
               </p>
-              <a href="#">G-Fisio</a>
+              <a href="https://gitlab.com/shamandul/G-fisio">G-Fisio</a>
               <p>
                 Puedes seguirnos a través de las redes sociales.
               </p>
